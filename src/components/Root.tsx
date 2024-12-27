@@ -30,12 +30,16 @@ function RootInner({ children }: PropsWithChildren) {
 
   const launchParams = useLaunchParams();
 
+  const searchParams = new URLSearchParams(window.location.search);
+  const chatId = searchParams.get("chat_id") || "";
+
   return (
     <TelegramSdkProvider
       value={{
         backButton,
         miniApp,
         launchParams,
+        chatId,
       }}
     >
       {children}

@@ -1,5 +1,7 @@
+import "../styles/reset.scss";
+import "../styles/globals.scss";
+
 import type { Metadata } from "next";
-import "./globals.css";
 import { Root } from "../components/Root";
 
 export const metadata: Metadata = {

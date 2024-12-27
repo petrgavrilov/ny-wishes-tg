@@ -20,7 +20,7 @@ export async function promptMiniApp(_bot: Bot<MyContext>, ctx: MyContext) {
             {
               text: "Открыть мини приложение",
               web_app: {
-                url: "https://127.0.0.1:3000",
+                url: `https://127.0.0.1:3000?chat_id=${ctx.chat?.id}`,
               },
             },
           ],

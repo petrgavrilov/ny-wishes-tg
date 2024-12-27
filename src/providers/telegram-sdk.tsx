@@ -8,6 +8,7 @@ interface TelegramSdkContext {
   backButton: typeof backButton;
   miniApp: typeof miniApp;
   launchParams: LaunchParams;
+  chatId: string;
 }
 
 const TelegramSdkContext = createContext<TelegramSdkContext | null>(null);
