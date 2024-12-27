@@ -19,6 +19,8 @@ export function setupQuizStage3(bot: Bot<MyContext>) {
       return;
     }
 
+    // todo: send image
+
     ctx.session.state = BotState.QuizStage3;
 
     await ctx.reply(goalsQuestion, {

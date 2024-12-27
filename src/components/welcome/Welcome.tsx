@@ -16,7 +16,7 @@ export default function Welcome() {
           placeholder="blur"
         />
         <div className="welcome-container">
-          <h1 className="welcome-title">Каким будет твой 2025?</h1>
+          <h1 className="welcome-title">Каким будет твой 2025?</h1>
           <Link className="welcome-button" href="/wishes">
             <span className="welcome-button-text">
               Погнали выбирать желания

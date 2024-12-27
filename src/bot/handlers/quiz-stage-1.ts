@@ -21,6 +21,8 @@ export function setupQuizStage1(bot: Bot<MyContext>) {
 
     ctx.session.state = BotState.QuizStage1;
 
+    // todo: send image
+
     await ctx.reply(priorityQuestion, {
       reply_markup: createQuizKeyboard(
         priorityAnswers,

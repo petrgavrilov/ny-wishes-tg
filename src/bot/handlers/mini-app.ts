@@ -9,6 +9,8 @@ export async function promptMiniApp(_bot: Bot<MyContext>, ctx: MyContext) {
     return;
   }
 
+  // todo: send image
+
   ctx.session.state = BotState.PromptMiniApp;
 
   await ctx.reply(
