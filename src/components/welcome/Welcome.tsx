@@ -14,6 +14,7 @@ export default function Welcome() {
           alt="Mountains"
           src={magicSnowBall}
           placeholder="blur"
+          width={480}
         />
         <div className="welcome-container">
           <h1 className="welcome-title">Каким будет твой 2025?</h1>

@@ -1,5 +1,4 @@
 import { backButton, LaunchParams, miniApp } from "@telegram-apps/sdk";
-import { useLaunchParams } from "@telegram-apps/sdk-react";
 import { useContext } from "react";
 import { createContext } from "react";
 import { PropsWithChildren } from "react";
@@ -7,8 +6,8 @@ import { PropsWithChildren } from "react";
 interface TelegramSdkContext {
   backButton: typeof backButton;
   miniApp: typeof miniApp;
-  launchParams: LaunchParams;
-  chatId: string;
+  launchParams: LaunchParams | null;
+  chatId: string | null;
 }
 
 const TelegramSdkContext = createContext<TelegramSdkContext | null>(null);

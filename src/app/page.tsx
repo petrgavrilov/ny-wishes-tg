@@ -10,8 +10,8 @@ export default function HomePage() {
   const router = useRouter();
 
   // useEffect(() => {
-  //   router.push("/wishes");
-  // }, []);
+  //   router.push("/final");
+  // }, [router]);
 
   return <main className="root">{isLoading ? null : <Welcome />}</main>;
 }

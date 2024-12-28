@@ -1,0 +1,20 @@
+.final-info {
+  padding: 30px 0 20px;
+}
+
+.final-info-text {
+  margin: 0;
+  padding-left: 24px;
+  color: #5d7182;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  background-position: 0px 2px;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml,<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.38836 0.407637C4.61444 -0.135879 5.38556 -0.135879 5.61164 0.407637L6.66234 2.93395L9.38951 3.15297C9.97693 3.1999 10.2151 3.93267 9.7675 4.31621L7.68982 6.09613L8.32418 8.75719C8.46094 9.33048 7.83769 9.78316 7.33505 9.47633L5 8.05016L2.66495 9.47633C2.16231 9.78316 1.53906 9.32997 1.67582 8.75719L2.31018 6.09613L0.232504 4.31621C-0.215127 3.93267 0.0230716 3.1999 0.610493 3.15297L3.33766 2.93395L4.38836 0.407637Z" fill="%23C5DCF0"/></svg>');
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+}

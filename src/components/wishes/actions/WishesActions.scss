@@ -2,6 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  margin: 0 auto 20px;
 }
 
 .action-button {
@@ -45,6 +47,7 @@
   background: #ffffff;
   border: 2px solid #d9edfd;
   box-shadow: 0px 0px 24px rgba(123, 194, 254, 0.48);
+  text-decoration: none;
 }
 
 .finish-button-icon {

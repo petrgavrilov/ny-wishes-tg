@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 320px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
 }
 
 .cards-stack {
@@ -17,15 +17,15 @@
       z-index: 4;
     }
     &:nth-child(2) {
-      transform: translate(0, -10px);
+      transform: translate(0, -10px) scale(0.98);
       z-index: 3;
     }
     &:nth-child(3) {
-      transform: translate(0, -20px);
+      transform: translate(0, -20px) scale(0.96);
       z-index: 2;
     }
     &:nth-child(4) {
-      transform: translate(0, -30px);
+      transform: translate(0, -30px) scale(0.94);
       z-index: 1;
     }
   }

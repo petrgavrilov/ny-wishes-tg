@@ -4,6 +4,7 @@ import {
   HandThumbUpIcon,
 } from "@heroicons/react/24/solid";
 import "./WishesActions.scss";
+import Link from "next/link";
 
 function LikeButton() {
   return (
@@ -23,10 +24,10 @@ function DislikeButton() {
 
 function FinishButton() {
   return (
-    <button className="finish-button">
+    <Link className="finish-button" href={"/final"}>
       <CheckCircleIcon className="finish-button-icon" />
       <span className="finish-button-text">Мне достаточно</span>
-    </button>
+    </Link>
   );
 }
 

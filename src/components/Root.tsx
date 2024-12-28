@@ -10,7 +10,6 @@ import {
 } from "@telegram-apps/sdk";
 import { useDidMount } from "@/hooks/useDidMount";
 import { TelegramSdkProvider } from "@/providers/telegram-sdk";
-import { useLaunchParams } from "@telegram-apps/sdk-react";
 
 function initApp(isDev: boolean): void {
   $debug.set(isDev);
@@ -25,10 +24,14 @@ function RootInner({ children }: PropsWithChildren) {
   const isDev = process.env.NODE_ENV === "development";
 
   useClientOnce(() => {
-    initApp(isDev);
+    try {
+      initApp(isDev);
+    } catch (error) {
+      console.warn("Error initializing the telegram sdk", error);
+    }
   });
 
-  const launchParams = useLaunchParams();
+  // const launchParams = useLaunchParams();
 
   const searchParams = new URLSearchParams(window.location.search);
   const chatId = searchParams.get("chat_id") || "";
@@ -38,7 +41,7 @@ function RootInner({ children }: PropsWithChildren) {
       value={{
         backButton,
         miniApp,
-        launchParams,
+        launchParams: null,
         chatId,
       }}
     >
