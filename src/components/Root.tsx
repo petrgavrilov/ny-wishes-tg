@@ -59,9 +59,9 @@ export function Root({ children }: PropsWithChildren) {
   }
 
   return (
-    <>
+    <div className="root">
       <Snowfall />
       <RootInner>{children}</RootInner>
-    </>
+    </div>
   );
 }
