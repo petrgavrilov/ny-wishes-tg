@@ -27,8 +27,8 @@ function RootInner({ children }: PropsWithChildren) {
   useClientOnce(() => {
     try {
       initApp(isDev);
-    } catch (error) {
-      console.warn("Error initializing the telegram sdk", error);
+    } catch {
+      // console.warn("Error initializing the telegram sdk", error);
     }
   });
 

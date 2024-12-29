@@ -2,6 +2,7 @@ import "./WishesTinder.scss";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import {
+  AnimatePresence,
   motion,
   useMotionValue,
   useMotionValueEvent,
@@ -15,17 +16,6 @@ import flyingGirl from "../../../../public/images/flying-girl.png";
 import girlOnBike from "../../../../public/images/girl-on-bike.png";
 import drawingGirl from "../../../../public/images/drawing-girl.png";
 import { Dispatch, useState } from "react";
-
-interface Card {
-  image: StaticImageData;
-  text: string;
-  id: string;
-}
-
-interface CardProps extends Card {
-  cards: Card[];
-  setCards: Dispatch<React.SetStateAction<Card[]>>;
-}
 
 const cardsData: Card[] = [
   {
@@ -60,23 +50,48 @@ const cardsData: Card[] = [
   },
 ];
 
-function Card({ image, text, id, setCards, cards }: CardProps) {
+interface Card {
+  image: StaticImageData;
+  text: string;
+  id: string;
+}
+
+interface CardProps extends Card {
+  cards: Card[];
+  setCards: Dispatch<React.SetStateAction<Card[]>>;
+  setNextCardType: Dispatch<React.SetStateAction<"left" | "right" | null>>;
+  nextCardType: "left" | "right" | null;
+}
+
+function Card({
+  image,
+  text,
+  id,
+  setCards,
+  cards,
+  setNextCardType,
+  nextCardType,
+}: CardProps) {
   const x = useMotionValue(0);
 
-  const scale = useTransform(x, [-150, 0, 150], [1.1, 1, 1.1]);
+  const scaleMotion = useTransform(x, [-150, 0, 150], [1.1, 1, 1.1]);
   const rotateRaw = useTransform(x, [-150, 150], [-18, 18]);
   const currentIndex = cards.findIndex((card) => card.id === id);
   const isFront = currentIndex === cards.length - 1;
 
   const rotate = useTransform(() => {
-    const offset = isFront ? 0 : currentIndex % 2 === 0 ? 6 : -6;
-
-    return `${rotateRaw.get() + offset}deg`;
+    return rotateRaw.get();
   });
 
-  // useMotionValueEvent(x, "change", (latest) => {
-  //   console.log(latest);
-  // });
+  const translateY = (cards.length - currentIndex - 1) * -8;
+
+  useMotionValueEvent(x, "change", (latest) => {
+    if (latest > 0 && nextCardType !== "right") {
+      setNextCardType("right");
+    } else if (latest < 0 && nextCardType !== "left") {
+      setNextCardType("left");
+    }
+  });
 
   const handleDragEnd = () => {
     const takeAfterDistance = 50;
@@ -92,11 +107,13 @@ function Card({ image, text, id, setCards, cards }: CardProps) {
       className="card-wrapper"
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
-      style={{ x, scale, rotate }}
-      animate={{ scale: isFront ? 1 : 0.98 }}
+      style={{ x, scale: scaleMotion, rotate }}
+      animate={{
+        translateY,
+      }}
       onDragEnd={handleDragEnd}
     >
-      <div className="card">
+      <div className={`card ${isFront ? "-front" : "-back"}`}>
         <Image
           className="card-image"
           src={image}
@@ -113,14 +130,35 @@ function Card({ image, text, id, setCards, cards }: CardProps) {
 
 export default function WishesTinder() {
   const [cards, setCards] = useState<Card[]>([...cardsData].reverse());
+  const [nextCardType, setNextCardType] = useState<"left" | "right" | null>(
+    null
+  );
 
   return (
     <div className="cards">
       <div className="cards-container">
         <div className="cards-stack">
-          {cards.map((card) => (
-            <Card key={card.id} {...card} cards={cards} setCards={setCards} />
-          ))}
+          <AnimatePresence>
+            {cards.map((card) => (
+              <motion.div
+                className="card-stack-item"
+                key={card.id}
+                exit={
+                  nextCardType === "left"
+                    ? { translateX: "-100vw", scale: 0.9, opacity: 0 }
+                    : { translateX: "100vw", scale: 0.9, opacity: 0 }
+                }
+              >
+                <Card
+                  {...card}
+                  cards={cards}
+                  setCards={setCards}
+                  setNextCardType={setNextCardType}
+                  nextCardType={nextCardType}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </div>
