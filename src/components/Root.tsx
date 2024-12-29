@@ -10,6 +10,7 @@ import {
 } from "@telegram-apps/sdk";
 import { useDidMount } from "@/hooks/useDidMount";
 import { TelegramSdkProvider } from "@/providers/telegram-sdk";
+import Snowfall from "./snowfall/Snowfall";
 
 function initApp(isDev: boolean): void {
   $debug.set(isDev);
@@ -57,5 +58,10 @@ export function Root({ children }: PropsWithChildren) {
     return null;
   }
 
-  return <RootInner>{children}</RootInner>;
+  return (
+    <>
+      <Snowfall />
+      <RootInner>{children}</RootInner>
+    </>
+  );
 }
