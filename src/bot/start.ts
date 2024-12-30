@@ -22,12 +22,15 @@ export const startTelegramBotInDev = async () => {
 };
 
 export const startTelegramBotInProduction = async () => {
-  const webhookUrl = ``;
+  try {
+    const webhookUrl = `${WEBAPP_URL}/api/telegram-webhook?token=${process.env.TELEGRAM_BOT_TOKEN}`;
+    const webhookInfo = await bot.api.getWebhookInfo();
 
-  const webhookInfo = await bot.api.getWebhookInfo();
-
-  if (webhookInfo.url !== webhookUrl) {
-    await bot.api.deleteWebhook();
-    await bot.api.setWebhook(webhookUrl);
+    if (webhookInfo.url !== webhookUrl) {
+      await bot.api.deleteWebhook();
+      await bot.api.setWebhook(webhookUrl);
+    }
+  } catch (err) {
+    console.error(err);
   }
 };
