@@ -33,9 +33,6 @@ export function setupStart(bot: Bot<MyContext>) {
 
     ctx.session.state = BotState.MemeSent;
     await ctx.replyWithVideo(snotVideoId);
-
-    setTimeout(async () => {
-      await promptName(bot, ctx);
-    }, 1000);
+    await promptName(bot, ctx);
   });
 }
