@@ -1,6 +1,5 @@
 import "./WishesTinder.scss";
 import Image from "next/image";
-import { StaticImageData } from "next/image";
 import {
   AnimatePresence,
   motion,
@@ -9,56 +8,19 @@ import {
   useTransform,
 } from "motion/react";
 
-import volcanoHike from "../../../../public/images/volcano-hike.png";
-import snowman from "../../../../public/images/snowman.png";
-import pirateQueen from "../../../../public/images/pirate-queen.png";
-import flyingGirl from "../../../../public/images/flying-girl.png";
-import girlOnBike from "../../../../public/images/girl-on-bike.png";
-import drawingGirl from "../../../../public/images/drawing-girl.png";
-import { Dispatch, useState } from "react";
-
-const cardsData: Card[] = [
-  {
-    image: volcanoHike,
-    text: `Отправиться в путешествие по малоизвестным местам`,
-    id: "volcano-hike",
-  },
-  {
-    image: snowman,
-    text: `Построить снеговика`,
-    id: "snowman",
-  },
-  {
-    image: pirateQueen,
-    text: `Стать пиратом`,
-    id: "pirate-queen",
-  },
-  {
-    image: flyingGirl,
-    text: `Полететь на воздушном шаре`,
-    id: "flying-girl",
-  },
-  {
-    image: girlOnBike,
-    text: `Прокатиться на велосипeде`,
-    id: "girl-on-bike",
-  },
-  {
-    image: drawingGirl,
-    text: `Нарисовать портрет`,
-    id: "drawing-girl",
-  },
-];
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Wish } from "@/data/wishes";
+import { MarkedWishes } from "../wishes.types";
 
 interface Card {
-  image: StaticImageData;
+  image: string;
   text: string;
   id: string;
 }
 
 interface CardProps extends Card {
   cards: Card[];
-  setCards: Dispatch<React.SetStateAction<Card[]>>;
+  markCard: (id: string, type: "like" | "dislike") => void;
   setNextCardType: Dispatch<React.SetStateAction<"left" | "right" | null>>;
   nextCardType: "left" | "right" | null;
 }
@@ -67,7 +29,7 @@ function Card({
   image,
   text,
   id,
-  setCards,
+  markCard,
   cards,
   setNextCardType,
   nextCardType,
@@ -83,7 +45,10 @@ function Card({
     return rotateRaw.get();
   });
 
-  const translateY = (cards.length - currentIndex - 1) * -8;
+  const translateY = (cards.length - currentIndex - 1) * -12;
+  const scale = isFront
+    ? scaleMotion
+    : 1 - (cards.length - currentIndex - 1) * 0.016;
 
   useMotionValueEvent(x, "change", (latest) => {
     if (latest > 0 && nextCardType !== "right") {
@@ -94,30 +59,27 @@ function Card({
   });
 
   const handleDragEnd = () => {
-    const takeAfterDistance = 50;
+    const takeAfterDistance = 20;
     const currentDragDistance = Math.abs(x.get());
 
     if (currentDragDistance > takeAfterDistance) {
-      setCards((prevCards) => prevCards.filter((card) => card.id !== id));
+      markCard(id, x.get() > 0 ? "like" : "dislike");
     }
   };
 
   return (
     <motion.div
       className="card-wrapper"
-      drag="x"
+      drag={isFront ? "x" : false}
       dragConstraints={{ left: 0, right: 0 }}
-      style={{ x, scale: scaleMotion, rotate }}
-      animate={{
-        translateY,
-      }}
+      style={{ x, scale, rotate, translateY }}
       onDragEnd={handleDragEnd}
     >
       <div className={`card ${isFront ? "-front" : "-back"}`}>
         <Image
           className="card-image"
           src={image}
-          alt="Volcano hike"
+          alt={text}
           width={312}
           height={312}
           priority={true}
@@ -128,11 +90,51 @@ function Card({
   );
 }
 
-export default function WishesTinder() {
-  const [cards, setCards] = useState<Card[]>([...cardsData].reverse());
-  const [nextCardType, setNextCardType] = useState<"left" | "right" | null>(
-    null
-  );
+interface WishesTinderProps {
+  wishes: Wish[];
+  markedWishes: MarkedWishes;
+  nextCardType: "left" | "right" | null;
+  setNextCardType: Dispatch<SetStateAction<"left" | "right" | null>>;
+  setMarkedWishes: Dispatch<SetStateAction<MarkedWishes>>;
+  setNextWish: Dispatch<SetStateAction<Wish | null>>;
+}
+
+const CARDS_COUNT = 5;
+
+export default function WishesTinder({
+  wishes,
+  markedWishes,
+  nextCardType,
+
+  setNextCardType,
+  setMarkedWishes,
+  setNextWish,
+}: WishesTinderProps) {
+  const [cards, setCards] = useState<Card[]>([]);
+
+  useEffect(() => {
+    if (wishes.length === 0) {
+      return;
+    }
+    const notMarkedWishes = wishes.filter((wish) => !markedWishes[wish.id]);
+    const nextWishes = [...notMarkedWishes.slice(0, CARDS_COUNT)].reverse();
+    const cards = nextWishes.map((wish) => {
+      return {
+        id: wish.id,
+        image: `/wishes/${wish.id}.png`,
+        text: wish.descriptionRus,
+      };
+    });
+
+    setCards(cards);
+    const nextWish =
+      nextWishes.length > 0 ? nextWishes[nextWishes.length - 1] : null;
+    setNextWish(nextWish);
+  }, [wishes, markedWishes]);
+
+  const markCard = (id: string, type: "like" | "dislike") => {
+    setMarkedWishes((prev) => ({ ...prev, [id]: type }));
+  };
 
   return (
     <div className="cards">
@@ -143,16 +145,22 @@ export default function WishesTinder() {
               <motion.div
                 className="card-stack-item"
                 key={card.id}
+                initial="hidden"
                 exit={
                   nextCardType === "left"
-                    ? { translateX: "-100vw", scale: 0.9, opacity: 0 }
-                    : { translateX: "100vw", scale: 0.9, opacity: 0 }
+                    ? {
+                        translateX: "-100vw",
+                        scale: 0.9,
+                        opacity: 0,
+                        zIndex: 1,
+                      }
+                    : { translateX: "100vw", scale: 0.9, opacity: 0, zIndex: 1 }
                 }
               >
                 <Card
                   {...card}
                   cards={cards}
-                  setCards={setCards}
+                  markCard={markCard}
                   setNextCardType={setNextCardType}
                   nextCardType={nextCardType}
                 />

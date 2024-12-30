@@ -35,9 +35,7 @@
   width: 100%;
   height: 100%;
 
-  filter: drop-shadow(0px 0px 24px rgba(8, 94, 168, 0.1));
   transform-origin: bottom;
-
   transition: transform 0.2s;
 
   &:hover {
@@ -57,6 +55,7 @@
   border: 4px solid #ffffff;
   border-radius: 32px;
   overflow: hidden;
+  box-shadow: 0px 0px 48px rgba(8, 94, 168, 0.16);
 
   &::before {
     z-index: 2;
@@ -70,21 +69,26 @@
     border-radius: 32px;
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0) 54.5%,
-      rgba(255, 255, 255, 0.8) 76%,
-      #ffffff 100%
+      rgba(22, 61, 93, 0) 0%,
+      rgba(22, 61, 93, 0) 54.5%,
+      rgba(22, 61, 93, 0.8) 76%,
+      rgb(22 61 93) 100%
     );
   }
 }
 
 .card-text {
-  padding: 30px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px 30px;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  color: #5d7182;
+  color: #fff;
   text-align: center;
 
   font-weight: 600;

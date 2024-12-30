@@ -6,17 +6,17 @@ import {
 import "./WishesActions.scss";
 import Link from "next/link";
 
-function LikeButton() {
+function LikeButton({ onClick }: { onClick: () => void }) {
   return (
-    <button className="action-button -like">
+    <button onClick={onClick} className="action-button -like">
       <HandThumbUpIcon className="action-button-icon" />
     </button>
   );
 }
 
-function DislikeButton() {
+function DislikeButton({ onClick }: { onClick: () => void }) {
   return (
-    <button className="action-button -dislike">
+    <button onClick={onClick} className="action-button -dislike">
       <HandThumbDownIcon className="action-button-icon" />
     </button>
   );
@@ -31,12 +31,20 @@ function FinishButton() {
   );
 }
 
-export default function WishesActions() {
+interface WishesActionsProps {
+  onLike: () => void;
+  onDislike: () => void;
+}
+
+export default function WishesActions({
+  onLike,
+  onDislike,
+}: WishesActionsProps) {
   return (
     <div className="actions">
-      <DislikeButton />
+      <DislikeButton onClick={onDislike} />
       <FinishButton />
-      <LikeButton />
+      <LikeButton onClick={onLike} />
     </div>
   );
 }
