@@ -7,6 +7,8 @@ import {
   backButton,
   init as initSDK,
   miniApp,
+  swipeBehavior,
+  viewport,
 } from "@telegram-apps/sdk";
 import { useDidMount } from "@/hooks/useDidMount";
 import { TelegramSdkProvider } from "@/providers/telegram-sdk";
@@ -16,6 +18,26 @@ function initApp(isDev: boolean): void {
   $debug.set(isDev);
 
   initSDK();
+
+  if (swipeBehavior.mount.isAvailable()) {
+    swipeBehavior.mount();
+
+    if (swipeBehavior.disableVertical.isAvailable()) {
+      swipeBehavior.disableVertical();
+    }
+  }
+
+  if (viewport.mount.isAvailable()) {
+    viewport.mount();
+
+    if (viewport.bindCssVars.isAvailable()) {
+      viewport.bindCssVars();
+    }
+
+    if (viewport.expand.isAvailable()) {
+      viewport.expand();
+    }
+  }
 
   miniApp.mount();
   backButton.mount();
