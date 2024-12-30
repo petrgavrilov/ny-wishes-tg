@@ -1,6 +1,6 @@
 import { bot } from "./bot";
 
-const WEBAPP_URL = ""; // URL to your production main site(eg. https://my-secrete-webapp.tld)
+export const WEBAPP_URL = process.env.WEBAPP_URL || "https://localhost:3000";
 
 const handleGracefulShutdown = async () => {
   await bot.stop();

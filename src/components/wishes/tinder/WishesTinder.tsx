@@ -130,7 +130,7 @@ export default function WishesTinder({
     const nextWish =
       nextWishes.length > 0 ? nextWishes[nextWishes.length - 1] : null;
     setNextWish(nextWish);
-  }, [wishes, markedWishes]);
+  }, [wishes, markedWishes, setNextWish, setCards]);
 
   const markCard = (id: string, type: "like" | "dislike") => {
     setMarkedWishes((prev) => ({ ...prev, [id]: type }));

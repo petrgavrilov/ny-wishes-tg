@@ -1,4 +1,4 @@
-import { Bot, Context, session, SessionFlavor } from "grammy";
+import { Bot } from "grammy";
 import { setupSession } from "./session";
 import { MyContext } from "./types";
 import { setupHandlers } from "./handlers";

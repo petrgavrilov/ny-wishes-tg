@@ -1,6 +1,6 @@
 "use client";
 
-import { PropsWithChildren, useEffect } from "react";
+import { PropsWithChildren } from "react";
 import { useClientOnce } from "../hooks/useClientOnce";
 import {
   $debug,
@@ -11,8 +11,6 @@ import {
 import { useDidMount } from "@/hooks/useDidMount";
 import { TelegramSdkProvider } from "@/providers/telegram-sdk";
 import Snowfall from "./snowfall/Snowfall";
-import { wishes } from "@/data/wishes";
-import { title } from "process";
 
 function initApp(isDev: boolean): void {
   $debug.set(isDev);

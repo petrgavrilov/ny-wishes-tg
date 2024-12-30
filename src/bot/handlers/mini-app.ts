@@ -1,5 +1,6 @@
 import { Bot } from "grammy";
 import { BotState, isStatePassed, MyContext } from "../types";
+import { WEBAPP_URL } from "../start";
 
 export async function promptMiniApp(_bot: Bot<MyContext>, ctx: MyContext) {
   if (isStatePassed(ctx.session, BotState.PromptMiniApp)) {
@@ -22,7 +23,7 @@ export async function promptMiniApp(_bot: Bot<MyContext>, ctx: MyContext) {
             {
               text: "Открыть мини приложение",
               web_app: {
-                url: `https://127.0.0.1:3000?chat_id=${ctx.chat?.id}`,
+                url: `${WEBAPP_URL}?chat_id=${ctx.chat?.id}`,
               },
             },
           ],
@@ -31,5 +32,3 @@ export async function promptMiniApp(_bot: Bot<MyContext>, ctx: MyContext) {
     }
   );
 }
-
-export function setupMiniApp(bot: Bot<MyContext>) {}
