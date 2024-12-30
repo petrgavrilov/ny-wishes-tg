@@ -11,6 +11,7 @@ import {
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Wish } from "@/data/wishes";
 import { MarkedWishes } from "../wishes.types";
+import { useTelegramSdk } from "@/providers/telegram-sdk";
 
 interface Card {
   image: string;
@@ -35,6 +36,7 @@ function Card({
   nextCardType,
 }: CardProps) {
   const x = useMotionValue(0);
+  const { hapticFeedback } = useTelegramSdk();
 
   const scaleMotion = useTransform(x, [-150, 0, 150], [1.1, 1, 1.1]);
   const rotateRaw = useTransform(x, [-150, 150], [-18, 18]);
@@ -64,6 +66,7 @@ function Card({
 
     if (currentDragDistance > takeAfterDistance) {
       markCard(id, x.get() > 0 ? "like" : "dislike");
+      hapticFeedback();
     }
   };
 

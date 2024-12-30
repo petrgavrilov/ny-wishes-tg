@@ -8,6 +8,8 @@ interface TelegramSdkContext {
   miniApp: typeof miniApp;
   launchParams: LaunchParams | null;
   chatId: string | null;
+
+  hapticFeedback: () => void;
 }
 
 const TelegramSdkContext = createContext<TelegramSdkContext | null>(null);

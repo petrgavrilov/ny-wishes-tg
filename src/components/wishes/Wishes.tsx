@@ -6,6 +6,7 @@ import WishesCounter from "./counter/WishesCounter";
 import { Wish } from "@/data/wishes";
 import { MarkedWishes } from "./wishes.types";
 import { Dispatch, SetStateAction, useState } from "react";
+import { useTelegramSdk } from "@/providers/telegram-sdk";
 
 interface WishesProps {
   wishes: Wish[];
@@ -23,11 +24,13 @@ export default function Wishes({
     null
   );
   const [nextWish, setNextWish] = useState<Wish | null>(null);
+  const { hapticFeedback } = useTelegramSdk();
 
   const onLike = () => {
     if (nextWish !== null) {
       setNextCardType("right");
       setMarkedWishes((prev) => ({ ...prev, [nextWish.id]: "like" }));
+      hapticFeedback();
     }
   };
 
@@ -35,6 +38,7 @@ export default function Wishes({
     if (nextWish !== null) {
       setNextCardType("left");
       setMarkedWishes((prev) => ({ ...prev, [nextWish.id]: "dislike" }));
+      hapticFeedback();
     }
   };
 

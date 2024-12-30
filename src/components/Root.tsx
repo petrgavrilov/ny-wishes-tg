@@ -5,6 +5,7 @@ import { useClientOnce } from "../hooks/useClientOnce";
 import {
   $debug,
   backButton,
+  hapticFeedback,
   init as initSDK,
   miniApp,
   swipeBehavior,
@@ -64,6 +65,11 @@ function RootInner({ children }: PropsWithChildren) {
         miniApp,
         launchParams: null,
         chatId,
+        hapticFeedback: () => {
+          if (hapticFeedback.impactOccurred.isAvailable()) {
+            hapticFeedback.impactOccurred("medium");
+          }
+        },
       }}
     >
       {children}
