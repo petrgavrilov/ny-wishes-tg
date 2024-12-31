@@ -16,6 +16,8 @@
     "@telegram-apps/sdk-react": "^2.0.22",
     "@twa-dev/sdk": "^8.0.1",
     "grammy": "^1.33.0",
+    "html-to-image": "^1.11.11",
+    "jszip": "^3.10.1",
     "motion": "^11.15.0",
     "next": "14.2.21",
     "next-connect": "^1.0.0",

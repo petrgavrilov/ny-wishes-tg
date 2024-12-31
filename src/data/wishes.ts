@@ -39,7 +39,7 @@ export const wishes: Wish[] = [
   {
     id: "attend-passionate-workshop",
     description: "Attend a workshop on a topic you’re passionate about",
-    descriptionRus: "Посетить мастер-класс по теме, которая вам интересна",
+    descriptionRus: "ППосетить мастер-класс",
     tags: ["growth", "skills", "inspiration", "fun"],
     emoji: "🔨",
     associations: [
@@ -53,7 +53,7 @@ export const wishes: Wish[] = [
   {
     id: "bake-a-cake-for-someone-special",
     description: "Bake a cake for someone special",
-    descriptionRus: "Испечь торт для кого-то особенного",
+    descriptionRus: "Испечь торт для кого‑то особенного",
     tags: ["kindness", "fun", "relationships", "joy"],
     emoji: "🎂",
     associations: [
@@ -67,7 +67,7 @@ export const wishes: Wish[] = [
   {
     id: "be-a-mentor-to-someone",
     description: "Be a mentor to someone",
-    descriptionRus: "Стать наставником для кого-то",
+    descriptionRus: "Стать наставником для кого-то",
     tags: ["growth", "kindness", "achievement", "relationships"],
     emoji: "🧑‍🏫",
     associations: [
@@ -81,7 +81,7 @@ export const wishes: Wish[] = [
   {
     id: "be-in-a-conscious-fulfilling-relationship",
     description: "Be in a conscious, fulfilling relationship",
-    descriptionRus: "Быть в осознанных, наполненных отношениях",
+    descriptionRus: "Быть в осознанных и гармоничных отношениях",
     tags: ["love", "relationships", "growth"],
     emoji: "💞",
     associations: [
@@ -95,7 +95,7 @@ export const wishes: Wish[] = [
   {
     id: "befriend-a-stranger",
     description: "Befriend a stranger",
-    descriptionRus: "Подружиться с незнакомцем",
+    descriptionRus: "Подружиться с незнакомцем",
     tags: ["relationships", "fun", "kindness", "inspiration"],
     emoji: "👋",
     associations: [
@@ -109,8 +109,7 @@ export const wishes: Wish[] = [
   {
     id: "bury-the-hatchet-with-people-you-conflicted-in-the-past",
     description: "Bury the hatchet with people whom you conflicted in the past",
-    descriptionRus:
-      "Закопать топор войны с теми, с кем вы конфликтовали в прошлом",
+    descriptionRus: "Закопать топор войны с теми, с кем я конфликтовал",
     tags: ["relationships", "calm", "kindness", "growth"],
     emoji: "🕊️",
     associations: [
@@ -174,8 +173,7 @@ export const wishes: Wish[] = [
   {
     id: "contact-a-teacher-who-changed-your-life-to-thank-them",
     description: "Contact a teacher who changed your life just to thank them",
-    descriptionRus:
-      "Связаться с учителем, который изменил вашу жизнь, чтобы поблагодарить его",
+    descriptionRus: "поблагодарить учителя, который изменил мою жизнь",
     tags: ["kindness", "inspiration", "relationships"],
     emoji: "✍️",
     associations: ["thank you card", "book", "pen", "apple", "notebook"],
@@ -197,7 +195,7 @@ export const wishes: Wish[] = [
   {
     id: "create-a-short-film-with-friends",
     description: "Create a short film with friends",
-    descriptionRus: "Создать короткометражный фильм с друзьями",
+    descriptionRus: "Снять короткометражный фильм",
     tags: ["creativity", "friends", "fun", "achievement"],
     emoji: "🎥",
     associations: [
@@ -253,7 +251,7 @@ export const wishes: Wish[] = [
   {
     id: "do-volunteer-work",
     description: "Do volunteer work",
-    descriptionRus: "Заняться волонтерской работой",
+    descriptionRus: "Заняться волонтерской работой",
     tags: ["kindness", "growth", "relationships", "achievement"],
     emoji: "🙌",
     associations: [
@@ -267,8 +265,7 @@ export const wishes: Wish[] = [
   {
     id: "donate-to-a-charity",
     description: "Donate to a charity or cause you believe in",
-    descriptionRus:
-      "Пожертвовать на благотворительность или дело, в которое вы верите",
+    descriptionRus: "Пожертвовать на благотворительность",
     tags: ["kindness", "growth", "inspiration"],
     emoji: "💝",
     associations: [
@@ -321,20 +318,20 @@ export const wishes: Wish[] = [
       "sun hat",
     ],
   },
-  {
-    id: "experience-an-obe",
-    description: "Experience an OBE (out-of-body experience)",
-    descriptionRus: "Испытать внетелесный опыт",
-    tags: ["mindfulness", "experiments", "inspiration"],
-    emoji: "🌀",
-    associations: [
-      "meditation guide",
-      "relaxing music",
-      "comfortable bed",
-      "dream journal",
-      "aromatherapy oils",
-    ],
-  },
+  // {
+  //   id: "experience-an-obe",
+  //   description: "Experience an OBE (out-of-body experience)",
+  //   descriptionRus: "Испытать внетелесный опыт",
+  //   tags: ["mindfulness", "experiments", "inspiration"],
+  //   emoji: "🌀",
+  //   associations: [
+  //     "meditation guide",
+  //     "relaxing music",
+  //     "comfortable bed",
+  //     "dream journal",
+  //     "aromatherapy oils",
+  //   ],
+  // },
   {
     id: "explore-a-cave",
     description: "Explore a cave",
@@ -357,20 +354,20 @@ export const wishes: Wish[] = [
       "binoculars",
     ],
   },
-  {
-    id: "fall-asleep-in-the-arms-of-someone-you-love",
-    description: "Fall asleep in the arms of someone you love",
-    descriptionRus: "Заснуть в объятиях того, кого вы любите",
-    tags: ["love", "calm", "joy"],
-    emoji: "💤",
-    associations: [
-      "cozy blanket",
-      "pillow",
-      "soft music",
-      "candle",
-      "bedtime book",
-    ],
-  },
+  // {
+  //   id: "fall-asleep-in-the-arms-of-someone-you-love",
+  //   description: "Fall asleep in the arms of someone you love",
+  //   descriptionRus: "Заснуть в объятиях того, кого вы любите",
+  //   tags: ["love", "calm", "joy"],
+  //   emoji: "💤",
+  //   associations: [
+  //     "cozy blanket",
+  //     "pillow",
+  //     "soft music",
+  //     "candle",
+  //     "bedtime book",
+  //   ],
+  // },
   {
     id: "fall-in-love",
     description: "Fall in love",
@@ -388,7 +385,7 @@ export const wishes: Wish[] = [
   {
     id: "fly-a-kite",
     description: "Fly a kite",
-    descriptionRus: "Запустить воздушного змея",
+    descriptionRus: "Запустить воздушного змея",
     tags: ["fun", "joy", "calm"],
     emoji: "🪁",
     associations: [
@@ -402,7 +399,7 @@ export const wishes: Wish[] = [
   {
     id: "fly-hot-air-balloon",
     description: "Fly in a hot-air balloon",
-    descriptionRus: "Полетать на воздушном шаре",
+    descriptionRus: "Полетать на воздушном шаре",
     tags: ["inspiration", "fun", "adrenaline", "travel"],
     emoji: "🎈",
     associations: ["balloon ticket", "binoculars", "camera", "jacket", "hat"],
@@ -410,8 +407,7 @@ export const wishes: Wish[] = [
   {
     id: "fold-1000-origami-cranes",
     description: "Fold 1,000 origami cranes and give them to someone special",
-    descriptionRus:
-      "Сложить 1,000 журавликов оригами и подарить их кому-то особенному",
+    descriptionRus: "Сложить 1,000 журавликов оригами",
     tags: ["creativity", "kindness", "relationships", "calm"],
     emoji: "📄",
     associations: [
@@ -425,7 +421,7 @@ export const wishes: Wish[] = [
   {
     id: "further-study",
     description: "Go onto further study",
-    descriptionRus: "Поступить на дальнейшее обучение",
+    descriptionRus: "Продолжить обучение",
     tags: ["growth", "achievement", "skills", "inspiration"],
     emoji: "🎓",
     associations: [
@@ -439,7 +435,7 @@ export const wishes: Wish[] = [
   {
     id: "get-closure",
     description: "Get closure on any past unhappiness",
-    descriptionRus: "Закрыть все прошлые неприятности",
+    descriptionRus: "Закрыть гештальты и отпустить прошлые обиды",
     tags: ["calm", "growth", "mindfulness", "relationships"],
     emoji: "🔑",
     associations: [
@@ -467,7 +463,7 @@ export const wishes: Wish[] = [
   {
     id: "get-featured-in-the-media",
     description: "Get featured in the media for something you are proud of",
-    descriptionRus: "Попасть в СМИ за то, чем вы гордитесь",
+    descriptionRus: "Попасть в СМИ за то, чем я горжусь",
     tags: ["achievement", "inspiration", "joy"],
     emoji: "📰",
     associations: [
@@ -495,7 +491,7 @@ export const wishes: Wish[] = [
   {
     id: "go-on-a-blind-date",
     description: "Go on a blind date (for the singles!)",
-    descriptionRus: "Пойти на свидание вслепую (для тех, кто одинок!)",
+    descriptionRus: "Пойти на свидание вслепую",
     tags: ["fun", "love", "relationships", "experiments"],
     emoji: "🌹",
     associations: [
@@ -523,7 +519,7 @@ export const wishes: Wish[] = [
   {
     id: "go-on-a-meditation-retreat",
     description: "Go on a meditation retreat",
-    descriptionRus: "Отправиться на медитационный ретрит",
+    descriptionRus: "Отправиться на медитационный ретрит",
     tags: ["calm", "mindfulness", "growth", "health"],
     emoji: "🧘‍♂️",
     associations: [
@@ -537,7 +533,7 @@ export const wishes: Wish[] = [
   {
     id: "go-rafting",
     description: "Go rafting",
-    descriptionRus: "Пойти на рафтинг",
+    descriptionRus: "Отправиться на рафтинг",
     tags: ["adrenaline", "fun", "fitness"],
     emoji: "🛶",
     associations: ["raft", "life jacket", "helmet", "paddle", "waterproof bag"],
@@ -581,7 +577,7 @@ export const wishes: Wish[] = [
   {
     id: "go-to-a-costume-party",
     description: "Go to a costume party",
-    descriptionRus: "Пойти на костюмированную вечеринку",
+    descriptionRus: "Пойти на костюмированную вечеринку",
     tags: ["fun", "creativity", "friends", "joy"],
     emoji: "🎭",
     associations: ["costume", "mask", "props", "makeup", "party favors"],
@@ -656,20 +652,20 @@ export const wishes: Wish[] = [
       "yoga blocks",
     ],
   },
-  {
-    id: "join-social-etiquette-class",
-    description: "Join a social etiquette class",
-    descriptionRus: "Присоединиться к классу по социальному этикету",
-    tags: ["growth", "relationships", "skills"],
-    emoji: "🎩",
-    associations: [
-      "class notes",
-      "guidebook",
-      "certificate",
-      "practice scenarios",
-      "mentor",
-    ],
-  },
+  // {
+  //   id: "join-social-etiquette-class",
+  //   description: "Join a social etiquette class",
+  //   descriptionRus: "Присоединиться к классу по социальному этикету",
+  //   tags: ["growth", "relationships", "skills"],
+  //   emoji: "🎩",
+  //   associations: [
+  //     "class notes",
+  //     "guidebook",
+  //     "certificate",
+  //     "practice scenarios",
+  //     "mentor",
+  //   ],
+  // },
   {
     id: "knit-a-scarf",
     description: "Knit a scarf",
@@ -702,7 +698,7 @@ export const wishes: Wish[] = [
   {
     id: "learn-martial-art",
     description: "Learn a martial art",
-    descriptionRus: "Научиться боевому искусству",
+    descriptionRus: "Изучить боевое искусство",
     tags: ["fitness", "skills", "achievement", "growth"],
     emoji: "🥋",
     associations: [
@@ -772,7 +768,7 @@ export const wishes: Wish[] = [
   {
     id: "learn-wine-appreciation",
     description: "Learn wine appreciation",
-    descriptionRus: "Научиться разбираться в винах",
+    descriptionRus: "Научиться разбираться в винах",
     tags: ["skills", "fun", "growth", "inspiration"],
     emoji: "🍷",
     associations: [
@@ -783,28 +779,28 @@ export const wishes: Wish[] = [
       "wine bottles",
     ],
   },
-  {
-    id: "let-someone-know-how-much-they-mean-to-you",
-    description: "Let someone know how much they mean to you",
-    descriptionRus: "Дать понять кому-то, как много он для вас значит",
-    tags: ["love", "kindness", "relationships"],
-    emoji: "💌",
-    associations: ["letter", "gift", "flowers", "chocolates", "photo frame"],
-  },
-  {
-    id: "live-through-all-seasons",
-    description: "Live through all four seasons of the year",
-    descriptionRus: "Прожить все четыре времени года",
-    tags: ["inspiration", "fun", "calm", "growth"],
-    emoji: "🌦️",
-    associations: [
-      "seasonal calendar",
-      "photo album",
-      "weather gear",
-      "journal",
-      "seasonal recipes",
-    ],
-  },
+  // {
+  //   id: "let-someone-know-how-much-they-mean-to-you",
+  //   description: "Let someone know how much they mean to you",
+  //   descriptionRus: "Дать понять кому-то, как много он для вас значит",
+  //   tags: ["love", "kindness", "relationships"],
+  //   emoji: "💌",
+  //   associations: ["letter", "gift", "flowers", "chocolates", "photo frame"],
+  // },
+  // {
+  //   id: "live-through-all-seasons",
+  //   description: "Live through all four seasons of the year",
+  //   descriptionRus: "Прожить все четыре времени года",
+  //   tags: ["inspiration", "fun", "calm", "growth"],
+  //   emoji: "🌦️",
+  //   associations: [
+  //     "seasonal calendar",
+  //     "photo album",
+  //     "weather gear",
+  //     "journal",
+  //     "seasonal recipes",
+  //   ],
+  // },
   {
     id: "make-a-difference-in-someones-life",
     description: "Make a difference in someone’s life",
@@ -878,7 +874,7 @@ export const wishes: Wish[] = [
   {
     id: "plant-a-tree-and-watch-it-grow",
     description: "Plant a tree and watch it grow",
-    descriptionRus: "Посадить дерево и наблюдать за его ростом",
+    descriptionRus: "Посадить дерево и наблюдать за его ростом",
     tags: ["kindness", "growth", "achievement", "calm"],
     emoji: "🌱",
     associations: [
@@ -892,7 +888,7 @@ export const wishes: Wish[] = [
   {
     id: "play-in-a-movie",
     description: "Play in a movie (big or small role!)",
-    descriptionRus: "Сняться в фильме (в большой или маленькой роли!)",
+    descriptionRus: "Сняться в фильме",
     tags: ["creativity", "fun", "inspiration", "achievement"],
     emoji: "🎬",
     associations: ["script", "camera", "costume", "clapperboard", "spotlight"],
@@ -914,7 +910,7 @@ export const wishes: Wish[] = [
   {
     id: "practice-mindfulness-meditation",
     description: "Try practicing mindfulness meditation for 10 minutes a day",
-    descriptionRus: "Практиковать осознанную медитацию по 10 минут в день",
+    descriptionRus: "Практиковать осознанную медитацию по 10 минут в день",
     tags: ["mindfulness", "calm", "health", "growth"],
     emoji: "🪷",
     associations: [
@@ -953,24 +949,24 @@ export const wishes: Wish[] = [
       "library",
     ],
   },
-  {
-    id: "reach-your-ideal-weight",
-    description: "Reach your ideal weight",
-    descriptionRus: "Достичь своего идеального веса",
-    tags: ["fitness", "achievement", "health"],
-    emoji: "⚖️",
-    associations: [
-      "scale",
-      "meal plan",
-      "workout gear",
-      "healthy snacks",
-      "fitness tracker",
-    ],
-  },
+  // {
+  //   id: "reach-your-ideal-weight",
+  //   description: "Reach your ideal weight",
+  //   descriptionRus: "Достичь своего идеального веса",
+  //   tags: ["fitness", "achievement", "health"],
+  //   emoji: "⚖️",
+  //   associations: [
+  //     "scale",
+  //     "meal plan",
+  //     "workout gear",
+  //     "healthy snacks",
+  //     "fitness tracker",
+  //   ],
+  // },
   {
     id: "read-12-books",
     description: "Read 12 books, one for each month of the year",
-    descriptionRus: "Прочитать 12 книг, по одной на каждый месяц года",
+    descriptionRus: "Прочитать 12 книг",
     tags: ["growth", "inspiration", "fun"],
     emoji: "📙",
     associations: [
@@ -998,7 +994,7 @@ export const wishes: Wish[] = [
   {
     id: "ride-roller-coaster",
     description: "Ride a roller coaster",
-    descriptionRus: "Прокатиться на американских горках",
+    descriptionRus: "Прокатиться на американских горках",
     tags: ["fun", "adrenaline", "joy"],
     emoji: "🎢",
     associations: [
@@ -1012,7 +1008,7 @@ export const wishes: Wish[] = [
   {
     id: "romantic-getaway",
     description: "Go on a romantic getaway",
-    descriptionRus: "Отправиться в романтическое путешествие",
+    descriptionRus: "Отправиться в романтическое путешествие",
     tags: ["love", "relationships", "calm", "joy"],
     emoji: "💑",
     associations: [
@@ -1037,20 +1033,20 @@ export const wishes: Wish[] = [
       "hydration pack",
     ],
   },
-  {
-    id: "run-barefoot",
-    description: "Run barefoot",
-    descriptionRus: "Бегать босиком",
-    tags: ["fitness", "fun", "experiments", "health"],
-    emoji: "🏃‍♂️",
-    associations: [
-      "barefoot shoes",
-      "grass field",
-      "fitness tracker",
-      "running path",
-      "hydration pack",
-    ],
-  },
+  // {
+  //   id: "run-barefoot",
+  //   description: "Run barefoot",
+  //   descriptionRus: "Бегать босиком",
+  //   tags: ["fitness", "fun", "experiments", "health"],
+  //   emoji: "🏃‍♂️",
+  //   associations: [
+  //     "barefoot shoes",
+  //     "grass field",
+  //     "fitness tracker",
+  //     "running path",
+  //     "hydration pack",
+  //   ],
+  // },
   {
     id: "see-cherry-blossoms-in-japan",
     description: "See cherry blossoms in Japan",
@@ -1138,7 +1134,7 @@ export const wishes: Wish[] = [
   {
     id: "start-a-blog-or-vlog",
     description: "Start a blog or vlog documenting your journey",
-    descriptionRus: "Начать блог или влог, документирующий ваше путешествие",
+    descriptionRus: "Начать блог или влог",
     tags: ["creativity", "growth", "inspiration", "skills"],
     emoji: "📹",
     associations: [
@@ -1152,7 +1148,7 @@ export const wishes: Wish[] = [
   {
     id: "start-a-collection",
     description: "Start a collection (e.g., stamps, postcards, art)",
-    descriptionRus: "Начать коллекцию (например, марок, открыток, искусства)",
+    descriptionRus: "Начать коллекционировать",
     tags: ["creativity", "calm", "inspiration", "achievement"],
     emoji: "🎟️",
     associations: [
@@ -1163,20 +1159,20 @@ export const wishes: Wish[] = [
       "catalog",
     ],
   },
-  {
-    id: "start-your-business",
-    description: "Start your business",
-    descriptionRus: "Начать свой бизнес",
-    tags: ["achievement", "growth", "inspiration", "skills"],
-    emoji: "📈",
-    associations: [
-      "business plan",
-      "office setup",
-      "marketing materials",
-      "logo design",
-      "finance tracker",
-    ],
-  },
+  // {
+  //   id: "start-your-business",
+  //   description: "Start your business",
+  //   descriptionRus: "Начать свой бизнес",
+  //   tags: ["achievement", "growth", "inspiration", "skills"],
+  //   emoji: "📈",
+  //   associations: [
+  //     "business plan",
+  //     "office setup",
+  //     "marketing materials",
+  //     "logo design",
+  //     "finance tracker",
+  //   ],
+  // },
   {
     id: "take-a-road-trip-to-lesser-known-destinations",
     description: "Take a road trip to lesser-known destinations",
@@ -1194,7 +1190,7 @@ export const wishes: Wish[] = [
   {
     id: "take-part-in-a-triathlon",
     description: "Take part in a triathlon",
-    descriptionRus: "Принять участие в триатлоне",
+    descriptionRus: "Принять участие в триатлоне",
     tags: ["fitness", "achievement", "adrenaline", "skills"],
     emoji: "🏊‍♂️",
     associations: [
@@ -1208,7 +1204,7 @@ export const wishes: Wish[] = [
   {
     id: "take-public-speaking-course",
     description: "Take a public speaking course",
-    descriptionRus: "Пройти курс по ораторскому мастерству",
+    descriptionRus: "Пройти курс по ораторскому мастерству",
     tags: ["growth", "achievement", "skills"],
     emoji: "🎙️",
     associations: [
@@ -1222,7 +1218,7 @@ export const wishes: Wish[] = [
   {
     id: "take-up-dancing",
     description: "Take up dancing",
-    descriptionRus: "Начать заниматься танцами",
+    descriptionRus: "Начать заниматься танцами",
     tags: ["fitness", "fun", "creativity", "growth"],
     emoji: "💃",
     associations: [
@@ -1236,7 +1232,7 @@ export const wishes: Wish[] = [
   {
     id: "take-up-new-sport",
     description: "Take up a new sport",
-    descriptionRus: "Начать заниматься новым видом спорта",
+    descriptionRus: "Начать заниматься новым видом спорта",
     tags: ["fitness", "fun", "skills", "growth"],
     emoji: "⚽",
     associations: [
@@ -1247,25 +1243,24 @@ export const wishes: Wish[] = [
       "fitness tracker",
     ],
   },
-  {
-    id: "tell-10-people-about-bucket-list",
-    description: "Tell 10 people about your bucket list",
-    descriptionRus: "Рассказать 10 людям о своем списке желаний",
-    tags: ["inspiration", "fun", "relationships", "growth"],
-    emoji: "📝",
-    associations: [
-      "bucket list notebook",
-      "social media post",
-      "friends gathering",
-      "photo collage",
-      "discussion topics",
-    ],
-  },
+  // {
+  //   id: "tell-10-people-about-bucket-list",
+  //   description: "Tell 10 people about your bucket list",
+  //   descriptionRus: "Рассказать 10 людям о своем списке желаний",
+  //   tags: ["inspiration", "fun", "relationships", "growth"],
+  //   emoji: "📝",
+  //   associations: [
+  //     "bucket list notebook",
+  //     "social media post",
+  //     "friends gathering",
+  //     "photo collage",
+  //     "discussion topics",
+  //   ],
+  // },
   {
     id: "tell-your-parents-and-siblings-you-love-them",
     description: "Tell your parents and siblings you love them",
-    descriptionRus:
-      "Сказать своим родителям и братьям/сестрам, что вы их любите",
+    descriptionRus: "Сказать своим родителям и братьям/сестрам, что я их люблю",
     tags: ["love", "relationships", "kindness", "joy"],
     emoji: "❤️",
     associations: [
@@ -1328,20 +1323,20 @@ export const wishes: Wish[] = [
       "notepad",
     ],
   },
-  {
-    id: "try-frontline-jobs",
-    description: "Try frontline jobs for the experience",
-    descriptionRus: "Попробовать работу на передовой для получения опыта",
-    tags: ["growth", "experiments", "achievement", "skills"],
-    emoji: "🛠️",
-    associations: [
-      "uniform",
-      "name badge",
-      "work gloves",
-      "task checklist",
-      "mentor guide",
-    ],
-  },
+  // {
+  //   id: "try-frontline-jobs",
+  //   description: "Try frontline jobs for the experience",
+  //   descriptionRus: "Попробовать работу на передовой для получения опыта",
+  //   tags: ["growth", "experiments", "achievement", "skills"],
+  //   emoji: "🛠️",
+  //   associations: [
+  //     "uniform",
+  //     "name badge",
+  //     "work gloves",
+  //     "task checklist",
+  //     "mentor guide",
+  //   ],
+  // },
   {
     id: "try-new-cuisine",
     description: "Try a new cuisine from a different culture",
@@ -1364,14 +1359,14 @@ export const wishes: Wish[] = [
     emoji: "🪂",
     associations: ["parachute", "jumpsuit", "helmet", "goggles", "certificate"],
   },
-  {
-    id: "visit-5-unesco-sites",
-    description: "Visit at least 5 UNESCO World Heritage Sites",
-    descriptionRus: "Посетить 5 объектов Всемирного наследия ЮНЕСКО",
-    tags: ["travel", "inspiration", "growth", "achievement"],
-    emoji: "🌏",
-    associations: ["passport", "guidebook", "map", "camera", "souvenirs"],
-  },
+  // {
+  //   id: "visit-5-unesco-sites",
+  //   description: "Visit at least 5 UNESCO World Heritage Sites",
+  //   descriptionRus: "Посетить 5 объектов Всемирного наследия ЮНЕСКО",
+  //   tags: ["travel", "inspiration", "growth", "achievement"],
+  //   emoji: "🌏",
+  //   associations: ["passport", "guidebook", "map", "camera", "souvenirs"],
+  // },
   {
     id: "visit-a-castle",
     description: "Visit a castle",
@@ -1418,7 +1413,7 @@ export const wishes: Wish[] = [
   {
     id: "walk-dance-barefoot-in-the-rain",
     description: "Walk/dance barefoot in the rain",
-    descriptionRus: "Прогуляться или потанцевать босиком под дождем",
+    descriptionRus: "Прогуляться или потанцевать босиком под дождем",
     tags: ["fun", "joy", "experiments", "calm"],
     emoji: "🌧️",
     associations: [
@@ -1460,7 +1455,7 @@ export const wishes: Wish[] = [
   {
     id: "write-a-letter-to-someone-you-admire",
     description: "Write a letter to someone you admire",
-    descriptionRus: "Написать письмо кому-то, кем вы восхищаетесь",
+    descriptionRus: "Написать письмо кому-то, кем я восхищаюсь",
     tags: ["inspiration", "kindness", "creativity"],
     emoji: "✉️",
     associations: ["stationery", "envelope", "pen", "stamps", "seal wax"],
@@ -1468,7 +1463,7 @@ export const wishes: Wish[] = [
   {
     id: "write-daily-gratitude-journal",
     description: "Write a daily gratitude journal",
-    descriptionRus: "Вести дневник благодарности ежедневно",
+    descriptionRus: "Вести ежедневный дневник благодарности",
     tags: ["mindfulness", "calm", "growth", "inspiration"],
     emoji: "📖",
     associations: [
@@ -1482,7 +1477,7 @@ export const wishes: Wish[] = [
   {
     id: "write-letter-to-future-self",
     description: "Write and mail a letter to your future self",
-    descriptionRus: "Написать и отправить письмо самому себе в будущее",
+    descriptionRus: "Написать и отправить письмо самому себе в будущее",
     tags: ["inspiration", "creativity", "calm", "growth"],
     emoji: "📮",
     associations: [

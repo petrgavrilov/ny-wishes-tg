@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Replace with the path to your directory
-const directoryPath = "./wishes";
+const directoryPath = "./social-cards";
 
 fs.readdir(directoryPath, (err, files) => {
   if (err) {
