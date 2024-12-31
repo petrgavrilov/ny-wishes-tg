@@ -1,0 +1,56 @@
+.final-list {
+  padding: 0 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.final-list-item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 2px;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(65, 139, 203, 0.425) 2.5%,
+        rgba(65, 139, 203, 0.125) 26.45%,
+        rgba(65, 139, 203, 0.125) 83.91%,
+        rgba(65, 139, 203, 0.425) 98.28%
+      ),
+      linear-gradient(164.6deg, #79b9f0 2.79%, #e64444 97.21%);
+    border-radius: 2px;
+    opacity: 0.48;
+    z-index: 2;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+}
+
+.final-list-item-icon {
+  z-index: 3;
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+  fill: #fff;
+
+  width: 20px;
+  height: 20px;
+
+  opacity: 0.64;
+}

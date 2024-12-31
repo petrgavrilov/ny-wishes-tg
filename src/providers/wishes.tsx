@@ -13,6 +13,7 @@ import {
 interface WishesContext {
   wishes: Wish[];
   markedWishes: MarkedWishes;
+  likedWishes: Wish[];
 
   wishesCount: number;
   markedWishesCount: number;
@@ -41,9 +42,13 @@ export const WishesProvider = ({
   const wishesCount = wishes.length;
   const markedWishesCount = Object.values(markedWishes).filter(Boolean).length;
   const unmarkedWishesCount = wishesCount - markedWishesCount;
-  const likedWishesCount = Object.values(markedWishes).filter(
-    (mark) => mark === "like"
-  ).length;
+
+  const likedWishesIds = Object.keys(markedWishes).filter(
+    (key) => markedWishes[key] === "like"
+  );
+  const likedWishesCount = likedWishesIds.length;
+  const likedWishes = wishes.filter((wish) => likedWishesIds.includes(wish.id));
+
   const dislikedWishesCount = Object.values(markedWishes).filter(
     (mark) => mark === "dislike"
   ).length;
@@ -55,6 +60,8 @@ export const WishesProvider = ({
     wishesCount,
     markedWishesCount,
     unmarkedWishesCount,
+
+    likedWishes,
     likedWishesCount,
     dislikedWishesCount,
 

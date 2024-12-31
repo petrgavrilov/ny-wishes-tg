@@ -14,7 +14,7 @@ export default function FinalFooter() {
   };
 
   return (
-    <div>
+    <div className="final-footer">
       <motion.button
         whileTap={{ scale: 0.95 }}
         className="more-button"
