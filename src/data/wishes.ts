@@ -39,7 +39,7 @@ export const wishes: Wish[] = [
   {
     id: "attend-passionate-workshop",
     description: "Attend a workshop on a topic you’re passionate about",
-    descriptionRus: "ППосетить мастер-класс",
+    descriptionRus: "Посетить мастер-класс",
     tags: ["growth", "skills", "inspiration", "fun"],
     emoji: "🔨",
     associations: [
@@ -173,7 +173,7 @@ export const wishes: Wish[] = [
   {
     id: "contact-a-teacher-who-changed-your-life-to-thank-them",
     description: "Contact a teacher who changed your life just to thank them",
-    descriptionRus: "поблагодарить учителя, который изменил мою жизнь",
+    descriptionRus: "Поблагодарить учителя, который изменил мою жизнь",
     tags: ["kindness", "inspiration", "relationships"],
     emoji: "✍️",
     associations: ["thank you card", "book", "pen", "apple", "notebook"],
@@ -407,7 +407,7 @@ export const wishes: Wish[] = [
   {
     id: "fold-1000-origami-cranes",
     description: "Fold 1,000 origami cranes and give them to someone special",
-    descriptionRus: "Сложить 1,000 журавликов оригами",
+    descriptionRus: "Сложить тысячу журавликов оригами",
     tags: ["creativity", "kindness", "relationships", "calm"],
     emoji: "📄",
     associations: [
@@ -577,7 +577,7 @@ export const wishes: Wish[] = [
   {
     id: "go-to-a-costume-party",
     description: "Go to a costume party",
-    descriptionRus: "Пойти на костюмированную вечеринку",
+    descriptionRus: "Пойти на костюмированную вечеринку",
     tags: ["fun", "creativity", "friends", "joy"],
     emoji: "🎭",
     associations: ["costume", "mask", "props", "makeup", "party favors"],
@@ -829,20 +829,20 @@ export const wishes: Wish[] = [
       "flowers",
     ],
   },
-  {
-    id: "make-a-heartfelt-surprise-to-someone",
-    description: "Make a heartfelt surprise to someone",
-    descriptionRus: "Сделать душевный сюрприз кому-то",
-    tags: ["kindness", "joy", "relationships", "fun"],
-    emoji: "🎁",
-    associations: [
-      "gift box",
-      "balloons",
-      "cake",
-      "confetti",
-      "thank you note",
-    ],
-  },
+  // {
+  //   id: "make-a-heartfelt-surprise-to-someone",
+  //   description: "Make a heartfelt surprise to someone",
+  //   descriptionRus: "Сделать душевный сюрприз кому-то",
+  //   tags: ["kindness", "joy", "relationships", "fun"],
+  //   emoji: "🎁",
+  //   associations: [
+  //     "gift box",
+  //     "balloons",
+  //     "cake",
+  //     "confetti",
+  //     "thank you note",
+  //   ],
+  // },
   {
     id: "overcome-biggest-fear",
     description: "Overcome your biggest fear",
@@ -1008,7 +1008,7 @@ export const wishes: Wish[] = [
   {
     id: "romantic-getaway",
     description: "Go on a romantic getaway",
-    descriptionRus: "Отправиться в романтическое путешествие",
+    descriptionRus: "Отправиться в романтическое путешествие",
     tags: ["love", "relationships", "calm", "joy"],
     emoji: "💑",
     associations: [

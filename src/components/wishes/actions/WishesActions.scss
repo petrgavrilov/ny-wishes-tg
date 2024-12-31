@@ -26,6 +26,11 @@
     border: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0px 0px 24px rgba(236, 111, 111, 0.48);
   }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.1;
+  }
 }
 
 .action-button-icon {
@@ -48,6 +53,11 @@
   border: 2px solid #d9edfd;
   box-shadow: 0px 0px 24px rgba(123, 194, 254, 0.48);
   text-decoration: none;
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
 }
 
 .finish-button-icon {

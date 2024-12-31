@@ -1,4 +1,4 @@
-import { backButton, LaunchParams, miniApp } from "@telegram-apps/sdk";
+import { backButton, LaunchParams, miniApp, popup } from "@telegram-apps/sdk";
 import { useContext } from "react";
 import { createContext } from "react";
 import { PropsWithChildren } from "react";
@@ -6,6 +6,7 @@ import { PropsWithChildren } from "react";
 interface TelegramSdkContext {
   backButton: typeof backButton;
   miniApp: typeof miniApp;
+  popup: typeof popup;
   launchParams: LaunchParams | null;
   chatId: string | null;
 
@@ -29,7 +30,7 @@ export const TelegramSdkProvider = ({
 export const useTelegramSdk = () => {
   const context = useContext(TelegramSdkContext);
   if (!context) {
-    throw new Error("useUser must be used within a UserProvider");
+    throw new Error("useTelegramSdk must be used within a TelegramSdkProvider");
   }
 
   return context;

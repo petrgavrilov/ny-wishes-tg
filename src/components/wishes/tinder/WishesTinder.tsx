@@ -10,8 +10,8 @@ import {
 
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Wish } from "@/data/wishes";
-import { MarkedWishes } from "../wishes.types";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
+import { useWishes } from "@/providers/wishes";
 
 interface Card {
   image: string;
@@ -94,26 +94,27 @@ function Card({
 }
 
 interface WishesTinderProps {
-  wishes: Wish[];
-  markedWishes: MarkedWishes;
   nextCardType: "left" | "right" | null;
   setNextCardType: Dispatch<SetStateAction<"left" | "right" | null>>;
-  setMarkedWishes: Dispatch<SetStateAction<MarkedWishes>>;
   setNextWish: Dispatch<SetStateAction<Wish | null>>;
 }
 
 const CARDS_COUNT = 5;
 
 export default function WishesTinder({
-  wishes,
-  markedWishes,
   nextCardType,
-
   setNextCardType,
-  setMarkedWishes,
   setNextWish,
 }: WishesTinderProps) {
   const [cards, setCards] = useState<Card[]>([]);
+  const {
+    shuffledWishes: wishes,
+    markedWishes,
+    setMarkedWishes,
+    resetWishes,
+    unmarkedWishesCount,
+  } = useWishes();
+  const { hapticFeedback, popup } = useTelegramSdk();
 
   useEffect(() => {
     if (wishes.length === 0) {
@@ -137,6 +138,32 @@ export default function WishesTinder({
 
   const markCard = (id: string, type: "like" | "dislike") => {
     setMarkedWishes((prev) => ({ ...prev, [id]: type }));
+  };
+
+  const reset = () => {
+    resetWishes();
+    hapticFeedback();
+  };
+
+  const handleReset = async () => {
+    if (popup.isSupported() && popup.open.isAvailable()) {
+      const promise = popup.open({
+        message: "Сбросить выбранные желания?",
+        buttons: [
+          { id: "no", type: "default", text: "Нет" },
+          { id: "yes", type: "destructive", text: "Да" },
+        ],
+      });
+      const buttonId = await promise;
+      if (buttonId === "yes") {
+        reset();
+      }
+    } else {
+      const confirm = window.confirm(`Сбросить выбранные желания?`);
+      if (confirm) {
+        reset();
+      }
+    }
   };
 
   return (
@@ -169,6 +196,16 @@ export default function WishesTinder({
                 />
               </motion.div>
             ))}
+            {unmarkedWishesCount === 0 && (
+              <div className="card-stack-item">
+                <div className="card-wrapper end">
+                  <p className="end-text">Всё, желания закончились :)</p>
+                  <p className="end-text">
+                    <span onClick={handleReset}>Начать заново?</span>
+                  </p>
+                </div>
+              </div>
+            )}
           </AnimatePresence>
         </div>
       </div>

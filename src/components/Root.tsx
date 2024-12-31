@@ -10,10 +10,13 @@ import {
   miniApp,
   swipeBehavior,
   viewport,
+  popup,
 } from "@telegram-apps/sdk";
 import { useDidMount } from "@/hooks/useDidMount";
 import { TelegramSdkProvider } from "@/providers/telegram-sdk";
 import Snowfall from "./snowfall/Snowfall";
+import { WishesProvider } from "@/providers/wishes";
+import { wishes } from "@/data/wishes";
 
 function initApp(isDev: boolean): void {
   $debug.set(isDev);
@@ -65,6 +68,7 @@ function RootInner({ children }: PropsWithChildren) {
         miniApp,
         launchParams: null,
         chatId,
+        popup,
         hapticFeedback: () => {
           if (hapticFeedback.impactOccurred.isAvailable()) {
             hapticFeedback.impactOccurred("medium");
@@ -72,7 +76,7 @@ function RootInner({ children }: PropsWithChildren) {
         },
       }}
     >
-      {children}
+      <WishesProvider data={wishes}>{children}</WishesProvider>
     </TelegramSdkProvider>
   );
 }
