@@ -39,7 +39,7 @@ export const WishesProvider = ({
   const [markedWishes, setMarkedWishes] = useState<MarkedWishes>({});
 
   useEffect(() => {
-    const wishes = [...data].slice(0, 10);
+    const wishes = [...data];
     setWishes(wishes);
     setShuffledWishes([...wishes].sort(() => Math.random() - 0.5));
   }, [data]);
