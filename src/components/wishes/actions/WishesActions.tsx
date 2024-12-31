@@ -4,47 +4,93 @@ import {
   HandThumbUpIcon,
 } from "@heroicons/react/24/solid";
 import "./WishesActions.scss";
-import Link from "next/link";
+import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
+import { useTelegramSdk } from "@/providers/telegram-sdk";
 
-function LikeButton({ onClick }: { onClick: () => void }) {
+function LikeButton({
+  onClick,
+  isDisabled,
+}: {
+  onClick: () => void;
+  isDisabled: boolean;
+}) {
   return (
-    <button onClick={onClick} className="action-button -like">
+    <motion.button
+      whileTap={{ scale: 0.95 }}
+      onClick={onClick}
+      className="action-button -like"
+      disabled={isDisabled}
+    >
       <HandThumbUpIcon className="action-button-icon" />
-    </button>
+    </motion.button>
   );
 }
 
-function DislikeButton({ onClick }: { onClick: () => void }) {
+function DislikeButton({
+  onClick,
+  isDisabled,
+}: {
+  onClick: () => void;
+  isDisabled: boolean;
+}) {
   return (
-    <button onClick={onClick} className="action-button -dislike">
+    <motion.button
+      whileTap={{ scale: 0.95 }}
+      onClick={onClick}
+      className="action-button -dislike"
+      disabled={isDisabled}
+    >
       <HandThumbDownIcon className="action-button-icon" />
-    </button>
+    </motion.button>
   );
 }
 
-function FinishButton() {
+function FinishButton({ isDisabled }: { isDisabled: boolean }) {
+  const router = useRouter();
+  const { hapticFeedback } = useTelegramSdk();
+
+  const handleFinish = () => {
+    router.push("/final");
+    hapticFeedback();
+  };
+
   return (
-    <Link className="finish-button" href={"/final"}>
+    <motion.button
+      whileTap={{ scale: 0.95 }}
+      className="finish-button"
+      onClick={handleFinish}
+      disabled={isDisabled}
+    >
       <CheckCircleIcon className="finish-button-icon" />
       <span className="finish-button-text">Мне достаточно</span>
-    </Link>
+    </motion.button>
   );
 }
 
 interface WishesActionsProps {
+  likedWishesCount: number;
+  unmarkedWishesCount: number;
+
   onLike: () => void;
   onDislike: () => void;
 }
 
 export default function WishesActions({
+  likedWishesCount,
+  unmarkedWishesCount,
+
   onLike,
   onDislike,
 }: WishesActionsProps) {
   return (
     <div className="actions">
-      <DislikeButton onClick={onDislike} />
-      <FinishButton />
-      <LikeButton onClick={onLike} />
+      <DislikeButton
+        isDisabled={unmarkedWishesCount <= 0}
+        onClick={onDislike}
+      />
+      <FinishButton isDisabled={likedWishesCount <= 0} />
+      <LikeButton isDisabled={unmarkedWishesCount <= 0} onClick={onLike} />
     </div>
   );
 }

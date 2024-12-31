@@ -29,7 +29,7 @@ export const TelegramSdkProvider = ({
 export const useTelegramSdk = () => {
   const context = useContext(TelegramSdkContext);
   if (!context) {
-    throw new Error("useUser must be used within a UserProvider");
+    throw new Error("useTelegramSdk must be used within a TelegramSdkProvider");
   }
 
   return context;

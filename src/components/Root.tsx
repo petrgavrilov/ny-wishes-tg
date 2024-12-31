@@ -14,6 +14,8 @@ import {
 import { useDidMount } from "@/hooks/useDidMount";
 import { TelegramSdkProvider } from "@/providers/telegram-sdk";
 import Snowfall from "./snowfall/Snowfall";
+import { WishesProvider } from "@/providers/wishes";
+import { wishes } from "@/data/wishes";
 
 function initApp(isDev: boolean): void {
   $debug.set(isDev);
@@ -72,7 +74,7 @@ function RootInner({ children }: PropsWithChildren) {
         },
       }}
     >
-      {children}
+      <WishesProvider data={wishes}>{children}</WishesProvider>
     </TelegramSdkProvider>
   );
 }

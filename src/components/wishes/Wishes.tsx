@@ -4,27 +4,18 @@ import WishesTinder from "./tinder/WishesTinder";
 import WishesActions from "./actions/WishesActions";
 import WishesCounter from "./counter/WishesCounter";
 import { Wish } from "@/data/wishes";
-import { MarkedWishes } from "./wishes.types";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
+import { useWishes } from "@/providers/wishes";
 
-interface WishesProps {
-  wishes: Wish[];
-  markedWishes: MarkedWishes;
-
-  setMarkedWishes: Dispatch<SetStateAction<MarkedWishes>>;
-}
-
-export default function Wishes({
-  wishes,
-  markedWishes,
-  setMarkedWishes,
-}: WishesProps) {
+export default function Wishes() {
   const [nextCardType, setNextCardType] = useState<"left" | "right" | null>(
     null
   );
   const [nextWish, setNextWish] = useState<Wish | null>(null);
   const { hapticFeedback } = useTelegramSdk();
+  const { setMarkedWishes, unmarkedWishesCount, likedWishesCount } =
+    useWishes();
 
   const onLike = () => {
     if (nextWish !== null) {
@@ -46,15 +37,17 @@ export default function Wishes({
     <Panel>
       <div className="wishes-container">
         <WishesTinder
-          wishes={wishes}
-          markedWishes={markedWishes}
           nextCardType={nextCardType}
           setNextCardType={setNextCardType}
-          setMarkedWishes={setMarkedWishes}
           setNextWish={setNextWish}
         />
-        <WishesActions onLike={onLike} onDislike={onDislike} />
-        <WishesCounter counter={25} />
+        <WishesActions
+          likedWishesCount={likedWishesCount}
+          unmarkedWishesCount={unmarkedWishesCount}
+          onLike={onLike}
+          onDislike={onDislike}
+        />
+        <WishesCounter counter={unmarkedWishesCount} />
       </div>
     </Panel>
   );

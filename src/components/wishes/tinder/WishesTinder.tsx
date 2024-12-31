@@ -10,8 +10,8 @@ import {
 
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Wish } from "@/data/wishes";
-import { MarkedWishes } from "../wishes.types";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
+import { useWishes } from "@/providers/wishes";
 
 interface Card {
   image: string;
@@ -94,26 +94,20 @@ function Card({
 }
 
 interface WishesTinderProps {
-  wishes: Wish[];
-  markedWishes: MarkedWishes;
   nextCardType: "left" | "right" | null;
   setNextCardType: Dispatch<SetStateAction<"left" | "right" | null>>;
-  setMarkedWishes: Dispatch<SetStateAction<MarkedWishes>>;
   setNextWish: Dispatch<SetStateAction<Wish | null>>;
 }
 
 const CARDS_COUNT = 5;
 
 export default function WishesTinder({
-  wishes,
-  markedWishes,
   nextCardType,
-
   setNextCardType,
-  setMarkedWishes,
   setNextWish,
 }: WishesTinderProps) {
   const [cards, setCards] = useState<Card[]>([]);
+  const { wishes, markedWishes, setMarkedWishes } = useWishes();
 
   useEffect(() => {
     if (wishes.length === 0) {
