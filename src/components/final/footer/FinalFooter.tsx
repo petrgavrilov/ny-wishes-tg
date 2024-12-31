@@ -3,14 +3,38 @@ import { ArrowPathIcon } from "@heroicons/react/20/solid";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
+import { useWishes } from "@/providers/wishes";
 
 export default function FinalFooter() {
   const router = useRouter();
-  const { hapticFeedback } = useTelegramSdk();
+  const { resetWishes } = useWishes();
+  const { hapticFeedback, popup } = useTelegramSdk();
 
-  const handleReturn = () => {
+  const returnToWishes = () => {
+    resetWishes();
     router.push("/wishes");
     hapticFeedback();
+  };
+
+  const handleReturn = async () => {
+    if (popup.isSupported() && popup.open.isAvailable()) {
+      const promise = popup.open({
+        message: "Сбросить выбранные желания?",
+        buttons: [
+          { id: "no", type: "default", text: "Нет" },
+          { id: "yes", type: "destructive", text: "Да" },
+        ],
+      });
+      const buttonId = await promise;
+      if (buttonId === "yes") {
+        returnToWishes();
+      }
+    } else {
+      const confirm = window.confirm(`Сбросить выбранные желания?`);
+      if (confirm) {
+        returnToWishes();
+      }
+    }
   };
 
   return (

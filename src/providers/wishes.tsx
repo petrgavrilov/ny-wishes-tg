@@ -14,6 +14,7 @@ interface WishesContext {
   wishes: Wish[];
   markedWishes: MarkedWishes;
   likedWishes: Wish[];
+  shuffledWishes: Wish[];
 
   wishesCount: number;
   markedWishesCount: number;
@@ -23,6 +24,7 @@ interface WishesContext {
 
   setWishes: Dispatch<SetStateAction<Wish[]>>;
   setMarkedWishes: Dispatch<SetStateAction<MarkedWishes>>;
+  resetWishes: () => void;
 }
 
 const WishesContext = createContext<WishesContext | null>(null);
@@ -33,10 +35,12 @@ export const WishesProvider = ({
   children,
 }: PropsWithChildren<{ data: Wish[] }>) => {
   const [wishes, setWishes] = useState<Wish[]>([]);
+  const [shuffledWishes, setShuffledWishes] = useState<Wish[]>([]);
   const [markedWishes, setMarkedWishes] = useState<MarkedWishes>({});
 
   useEffect(() => {
     setWishes(data);
+    setShuffledWishes([...data].sort(() => Math.random() - 0.5));
   }, [data]);
 
   const wishesCount = wishes.length;
@@ -53,6 +57,11 @@ export const WishesProvider = ({
     (mark) => mark === "dislike"
   ).length;
 
+  const resetWishes = () => {
+    setMarkedWishes({});
+    setShuffledWishes(wishes.sort(() => Math.random() - 0.5));
+  };
+
   const value: WishesContext = {
     wishes,
     markedWishes,
@@ -65,8 +74,11 @@ export const WishesProvider = ({
     likedWishesCount,
     dislikedWishesCount,
 
+    shuffledWishes,
+
     setWishes,
     setMarkedWishes,
+    resetWishes,
   };
 
   return (

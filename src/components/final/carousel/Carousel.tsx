@@ -19,6 +19,7 @@ export default function FinalCarousel({
   startId,
   setIsCarouselVisible,
 }: FinalCarouselProps) {
+  const initRef = useRef(false);
   const swiperRef = useRef<any>(null);
   const { hapticFeedback } = useTelegramSdk();
   const [currentWish, setCurrentWish] = useState<Wish | null>(null);
@@ -59,8 +60,11 @@ export default function FinalCarousel({
   };
 
   useEffect(() => {
-    setStartSlide(startId);
-  }, [startId, likedWishes, setStartSlide]);
+    if (!initRef.current) {
+      setStartSlide(startId);
+      initRef.current = true;
+    }
+  }, [startId, setStartSlide]);
 
   const handleShare = async () => {
     if (currentWish === null) {
@@ -107,53 +111,55 @@ export default function FinalCarousel({
   };
 
   return (
-    <div className="carousel-container">
-      <Swiper
-        spaceBetween={0}
-        slidesPerView={1}
-        onSlideChange={handleSlideChange}
-        onSwiper={handleSwiperInit}
-        loop={true}
-        style={{
-          height: "100%",
-          width: "100%",
-        }}
-      >
-        {likedWishes.map((wish) => {
-          return (
-            <SwiperSlide key={wish.id}>
-              <div className="slide">
-                <Image
-                  className="slide-image"
-                  src={`/social-cards/${wish.id}.png`}
-                  alt={wish.description}
-                  width={540}
-                  height={960}
-                  priority={true}
-                />
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+    <>
+      {" "}
+      <div className="carousel-container">
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={1}
+          onSlideChange={handleSlideChange}
+          onSwiper={handleSwiperInit}
+          loop={true}
+          style={{
+            height: "100%",
+            width: "100%",
+          }}
+        >
+          {likedWishes.map((wish) => {
+            return (
+              <SwiperSlide key={wish.id}>
+                <div className="slide">
+                  <Image
+                    className="slide-image"
+                    src={`/social-cards/${wish.id}.png`}
+                    alt={wish.description}
+                    width={540}
+                    height={960}
+                    priority={true}
+                  />
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
 
-      <div className="slide-actions">
-        <motion.button
-          whileTap={{ scale: 0.95 }}
-          onClick={handleShare}
-          className="slide-action-button -share"
-        >
-          <ShareIcon className="slide-action-button-icon" />
-        </motion.button>
-        <motion.button
-          whileTap={{ scale: 0.95 }}
-          onClick={handleDownload}
-          className="slide-action-button -download"
-        >
-          <ArrowDownTrayIcon className="slide-action-button-icon" />
-        </motion.button>
+        <div className="slide-actions">
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={handleShare}
+            className="slide-action-button -share"
+          >
+            <ShareIcon className="slide-action-button-icon" />
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={handleDownload}
+            className="slide-action-button -download"
+          >
+            <ArrowDownTrayIcon className="slide-action-button-icon" />
+          </motion.button>
+        </div>
       </div>
-
       <div className="close-panel">
         <motion.button
           className="close-panel-button"
@@ -164,6 +170,6 @@ export default function FinalCarousel({
           <XMarkIcon className="close-panel-icon" />
         </motion.button>
       </div>
-    </div>
+    </>
   );
 }

@@ -107,7 +107,7 @@ export default function WishesTinder({
   setNextWish,
 }: WishesTinderProps) {
   const [cards, setCards] = useState<Card[]>([]);
-  const { wishes, markedWishes, setMarkedWishes } = useWishes();
+  const { shuffledWishes: wishes, markedWishes, setMarkedWishes } = useWishes();
 
   useEffect(() => {
     if (wishes.length === 0) {

@@ -10,6 +10,7 @@ import {
   miniApp,
   swipeBehavior,
   viewport,
+  popup,
 } from "@telegram-apps/sdk";
 import { useDidMount } from "@/hooks/useDidMount";
 import { TelegramSdkProvider } from "@/providers/telegram-sdk";
@@ -67,6 +68,7 @@ function RootInner({ children }: PropsWithChildren) {
         miniApp,
         launchParams: null,
         chatId,
+        popup,
         hapticFeedback: () => {
           if (hapticFeedback.impactOccurred.isAvailable()) {
             hapticFeedback.impactOccurred("medium");
