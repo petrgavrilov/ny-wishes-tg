@@ -15,7 +15,7 @@ export default function FinalHeader() {
   return (
     <div className="final-header">
       {likedWishesCount <= 0 && (
-        <h1 className="final-header-title">Пока ничего не выбрано</h1>
+        <h1 className="final-header-title">Пока ничего не выбрано</h1>
       )}
       {likedWishesCount > 0 && (
         <>

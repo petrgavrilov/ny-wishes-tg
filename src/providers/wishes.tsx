@@ -39,8 +39,9 @@ export const WishesProvider = ({
   const [markedWishes, setMarkedWishes] = useState<MarkedWishes>({});
 
   useEffect(() => {
-    setWishes(data);
-    setShuffledWishes([...data].sort(() => Math.random() - 0.5));
+    const wishes = [...data].slice(0, 10);
+    setWishes(wishes);
+    setShuffledWishes([...wishes].sort(() => Math.random() - 0.5));
   }, [data]);
 
   const wishesCount = wishes.length;
