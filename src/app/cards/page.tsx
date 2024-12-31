@@ -43,7 +43,7 @@ function Card({ wish, cardRef }: CardProps) {
 }
 
 export default function CardsPage() {
-  const [wishesData, setWishesData] = useState<Wish[]>(wishes);
+  const [wishesData] = useState<Wish[]>(wishes);
   const [currentWish, setCurrentWish] = useState<Wish | null>(null);
 
   const cardRef = useRef<HTMLDivElement | null>(null);
@@ -58,7 +58,7 @@ export default function CardsPage() {
 
     const zip = new JSZip();
 
-    for (let wish of wishesData.slice()) {
+    for (const wish of wishesData.slice()) {
       try {
         setCurrentWish(wish);
 
