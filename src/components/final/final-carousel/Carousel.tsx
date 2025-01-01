@@ -1,6 +1,5 @@
 import { useWishes } from "@/providers/wishes";
 import "./Carousel.scss";
-import "swiper/css";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { Wish } from "@/data/wishes";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
@@ -29,6 +28,8 @@ export default function FinalCarousel({
   const { hapticFeedback } = useTelegramSdk();
   const [currentWish, setCurrentWish] = useState<Wish | null>(null);
   const { likedWishes } = useWishes();
+  const [isSharingEnabled, setIsSharingEnabled] = useState(false);
+  const [shareData, setShareData] = useState<ShareData | null>(null);
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -58,6 +59,37 @@ export default function FinalCarousel({
   }, [activeIndex]);
 
   useEffect(() => {
+    (async (currentWish: Wish | null) => {
+      if (currentWish === null) {
+        setShareData(null);
+        setIsSharingEnabled(false);
+        return;
+      }
+
+      try {
+        const imageName = `${currentWish.id}.png`;
+        const cardUrl = `/social-cards/${imageName}`;
+        const response = await fetch(cardUrl);
+        const blob = await response.blob();
+        const filesArray = [
+          new File([blob], imageName, {
+            type: "image/png",
+            lastModified: new Date().getTime(),
+          }),
+        ];
+        const shareData: ShareData = {
+          files: filesArray,
+        };
+        setShareData(shareData);
+        setIsSharingEnabled(navigator.canShare(shareData));
+      } catch {
+        setShareData(null);
+        setIsSharingEnabled(false);
+      }
+    })(currentWish).then();
+  }, [currentWish]);
+
+  useEffect(() => {
     if (startId) {
       const startIndex = likedWishes.findIndex((wish) => wish.id === startId);
       if (startIndex > -1 && carouselRef.current) {
@@ -71,27 +103,11 @@ export default function FinalCarousel({
     }
   }, []);
 
-  const handleShare = async () => {
-    if (currentWish === null) {
-      return;
-    }
-
-    const imageName = `${currentWish.id}.png`;
-    const cardUrl = `/social-cards/${imageName}`;
-    const response = await fetch(cardUrl);
-    const blob = await response.blob();
-    const filesArray = [
-      new File([blob], imageName, {
-        type: "image/png",
-        lastModified: new Date().getTime(),
-      }),
-    ];
-    const shareData: ShareData = {
-      files: filesArray,
-    };
-
-    hapticFeedback();
-    await navigator.share(shareData);
+  const handleShare = async (shareData: ShareData) => {
+    try {
+      await navigator.share(shareData);
+      hapticFeedback();
+    } catch {}
   };
 
   const handleClose = () => {
@@ -117,21 +133,15 @@ export default function FinalCarousel({
         </div>
 
         <div className="slide-actions">
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={handleShare}
-            className="slide-action-button -share"
-          >
-            <ShareIcon className="slide-action-button-icon" />
-          </motion.button>
-          {/* todo: show share button only where it works */}
-          {/* <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={handleDownload}
-            className="slide-action-button -download"
-          >
-            <ArrowDownTrayIcon className="slide-action-button-icon" />
-          </motion.button> */}
+          {isSharingEnabled && shareData && (
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => handleShare(shareData)}
+              className="slide-action-button -share"
+            >
+              <ShareIcon className="slide-action-button-icon" />
+            </motion.button>
+          )}
         </div>
       </div>
       <div className="close-panel">
