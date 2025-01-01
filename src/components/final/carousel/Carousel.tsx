@@ -42,7 +42,7 @@ export default function FinalCarousel({
         setActiveIndex(currentIndex);
         hapticFeedback();
       }
-    }, 100);
+    }, 50);
 
     if (carousel) {
       carousel.addEventListener("scroll", handleScroll);

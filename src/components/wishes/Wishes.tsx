@@ -35,6 +35,11 @@ export default function Wishes() {
     }
   };
 
+  const handleCloseOnboarding = () => {
+    setShowOnboarding(false);
+    hapticFeedback();
+  };
+
   return (
     <>
       <Panel>
@@ -54,7 +59,7 @@ export default function Wishes() {
         </div>
       </Panel>
       {showOnboarding && (
-        <WishesOnboarding handleStart={() => setShowOnboarding(false)} />
+        <WishesOnboarding handleStart={handleCloseOnboarding} />
       )}
     </>
   );
