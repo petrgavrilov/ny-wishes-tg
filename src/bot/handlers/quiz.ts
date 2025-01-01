@@ -38,7 +38,7 @@ export function setupQuiz(bot: Bot<MyContext>) {
     ctx.session.state = BotState.QuizFinished;
 
     await ctx.reply(
-      "Спасибо за ответы! Теперь я точно знаю, что сделает твой Новый год особенным"
+      "Спасибо за ответы! Теперь я точно знаю, что сделает твой новый год особенным"
     );
 
     await promptMiniApp(bot, ctx);

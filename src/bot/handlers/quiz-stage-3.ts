@@ -9,6 +9,7 @@ import {
   quizFinishedCommand,
 } from "../data/quiz";
 import { createQuizKeyboard } from "../helpers/quiz";
+import { sendAnalyticsEvent } from "../analytics";
 
 export function setupQuizStage3(bot: Bot<MyContext>) {
   bot.callbackQuery(quizStage3Command, async (ctx) => {
@@ -22,6 +23,12 @@ export function setupQuizStage3(bot: Bot<MyContext>) {
     await ctx.replyWithPhoto(
       `AgACAgIAAxkBAAICMWd03LsgyiSW5u16mMxcnBO2McFcAAIs7DEbD3WhS16Tq0T_gIFsAQADAgADcwADNgQ`
     );
+
+    await sendAnalyticsEvent({
+      distinctId: String(ctx.chat?.id || ctx.from?.id),
+      event: "user started quiz stage 3",
+      properties: ctx.session,
+    });
 
     ctx.session.state = BotState.QuizStage3;
 

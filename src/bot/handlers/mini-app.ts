@@ -1,6 +1,7 @@
 import { Bot } from "grammy";
 import { BotState, isStatePassed, MyContext } from "../types";
 import { WEBAPP_URL } from "../start";
+import { sendAnalyticsEvent } from "../analytics";
 
 export async function promptMiniApp(_bot: Bot<MyContext>, ctx: MyContext) {
   if (isStatePassed(ctx.session, BotState.PromptMiniApp)) {
@@ -13,6 +14,12 @@ export async function promptMiniApp(_bot: Bot<MyContext>, ctx: MyContext) {
   await ctx.replyWithPhoto(
     `AgACAgIAAxkBAAICNGd03fViSl-zcMgzKs1Uppee4Aj-AAIv7DEbD3WhS1AiKv8qPwEXAQADAgADcwADNgQ`
   );
+
+  await sendAnalyticsEvent({
+    distinctId: String(ctx.chat?.id || ctx.from?.id),
+    event: "user finished quiz",
+    properties: ctx.session,
+  });
 
   ctx.session.state = BotState.PromptMiniApp;
 

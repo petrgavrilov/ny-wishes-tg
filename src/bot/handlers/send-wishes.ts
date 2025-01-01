@@ -4,6 +4,7 @@ import { MyContext } from "../types";
 import { wishes } from "@/data/wishes";
 import { WEBAPP_URL } from "../start";
 import { InputMediaPhoto } from "grammy/types";
+import { sendAnalyticsEvent } from "../analytics";
 
 const MAX_PHOTOS = 10;
 
@@ -67,11 +68,23 @@ async function sendCards(chatId: string, wishesIds: string[]) {
 }
 
 export async function sendWishes(chatId: string, wishesIds: string[]) {
+  await sendAnalyticsEvent({
+    distinctId: String(chatId),
+    event: "user selected wishes in mini app",
+    properties: { wishesIds },
+  });
+
   await sendCards(chatId, wishesIds);
 }
 
 export function setupWishes(bot: Bot<MyContext>) {
   bot.command("wishes", async (ctx) => {
+    await sendAnalyticsEvent({
+      distinctId: String(ctx.chat?.id || ctx.from?.id),
+      event: "user asked bot to send wishes",
+      properties: ctx.session,
+    });
+
     const wishesIds = ctx.session.wishesIds;
     await sendCards(ctx.chat.id.toString(), wishesIds);
   });

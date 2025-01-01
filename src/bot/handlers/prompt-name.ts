@@ -1,6 +1,7 @@
 import { Bot, InlineKeyboard } from "grammy";
 import { BotState, isStatePassed, MyContext } from "../types";
 import { startQuiz } from "./quiz";
+import { sendAnalyticsEvent } from "../analytics";
 
 const inputUserNameCommand = `input-user-name`;
 const skipInputUserNameCommand = `skip-input-user-name`;
@@ -42,6 +43,13 @@ export function setupPromptName(bot: Bot<MyContext>) {
     }
 
     ctx.session.userName = ctx.message.text;
+
+    await sendAnalyticsEvent({
+      distinctId: String(ctx.chat?.id || ctx.from?.id),
+      event: "user entered name",
+      properties: ctx.session,
+    });
+
     await startQuiz(bot, ctx);
   });
 
@@ -52,6 +60,12 @@ export function setupPromptName(bot: Bot<MyContext>) {
       });
       return;
     }
+
+    await sendAnalyticsEvent({
+      distinctId: String(ctx.chat?.id || ctx.from?.id),
+      event: "user skipped name input",
+      properties: ctx.session,
+    });
 
     ctx.session.state = BotState.SkipNameInput;
     await startQuiz(bot, ctx);

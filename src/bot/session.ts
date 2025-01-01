@@ -8,6 +8,7 @@ function initial(): SessionData {
     userName: undefined,
     quiz: { priorities: [], emotions: [], goals: [] },
     wishesIds: [],
+    userInfo: { firstName: "", lastName: "", id: "" },
   };
 }
 

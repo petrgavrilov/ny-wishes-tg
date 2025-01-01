@@ -6,7 +6,7 @@ export const quizStage3Command = `quiz-stage-3`;
 export const quizFinishedCommand = `quiz-finished`;
 
 export const setPriorityCommand = `set-priority`;
-export const priorityQuestion = `Чего тебе больше всего хочется?`;
+export const priorityQuestion = `Чего тебе больше всего хочется? Можешь выбрать несколько вариантов.`;
 export const priorityAnswers: QuizAnswer[] = [
   { text: "Путешествовать", value: "travel", emoji: "🌍" },
   { text: "Развиваться", value: "growth", emoji: "📚" },
