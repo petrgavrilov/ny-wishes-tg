@@ -37,7 +37,6 @@ export default function FinalCarousel({
 
   const handleSlideChange = () => {
     updateCurrentWish();
-    hapticFeedback();
   };
 
   const setStartSlide = (startId?: string) => {
@@ -76,7 +75,7 @@ export default function FinalCarousel({
     const response = await fetch(cardUrl);
     const blob = await response.blob();
     const filesArray = [
-      new File([blob], `imageName`, {
+      new File([blob], imageName, {
         type: "image/png",
         lastModified: new Date().getTime(),
       }),
@@ -98,6 +97,7 @@ export default function FinalCarousel({
     const cardUrl = `/social-cards/${imageName}`;
 
     const link = document.createElement("a");
+    link.target = "_blank";
     link.href = cardUrl;
     link.download = imageName;
 
@@ -119,7 +119,6 @@ export default function FinalCarousel({
           slidesPerView={1}
           onSlideChange={handleSlideChange}
           onSwiper={handleSwiperInit}
-          loop={true}
           style={{
             height: "100%",
             width: "100%",

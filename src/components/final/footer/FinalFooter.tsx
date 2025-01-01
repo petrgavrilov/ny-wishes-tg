@@ -45,7 +45,7 @@ export default function FinalFooter() {
         onClick={handleReturn}
       >
         <ArrowPathIcon className="more-button-icon" />
-        <span className="more-button-text">Повыбирать заново</span>
+        <span className="more-button-text">Повыбирать заново</span>
       </motion.button>
     </div>
   );
