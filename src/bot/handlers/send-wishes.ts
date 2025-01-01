@@ -23,7 +23,8 @@ async function sendCards(chatId: string, wishesIds: string[]) {
     .map((wish) => `${wish.emoji} ${wish.descriptionRus}`)
     .join("\n");
   const imagesUrls = userWishes.map(
-    (wish) => `${WEBAPP_URL}/social-cards/${wish.id}.png`
+    (wish) =>
+      wish.socialCardFileId || `${WEBAPP_URL}/social-cards/${wish.id}.png`
   );
   const imagesUrlsChunks = createChunks(imagesUrls, MAX_PHOTOS);
 
@@ -32,10 +33,6 @@ async function sendCards(chatId: string, wishesIds: string[]) {
   const promises: Promise<any>[] = [];
 
   for (const imagesUrlsChunk of imagesUrlsChunks) {
-    // const media = imagesUrlsChunk.map<InputMediaPhoto>((url) => ({
-    //   type: "photo",
-    //   media: url,
-    // }));
     const media = imagesUrlsChunk.map<InputMediaDocument>((url) => ({
       type: "document",
       media: url,

@@ -5,6 +5,7 @@ export interface Wish {
   tags: string[];
   emoji: string;
   associations: string[];
+  socialCardFileId: string;
 }
 
 export const wishes: Wish[] = [
@@ -21,6 +22,8 @@ export const wishes: Wish[] = [
       "band merch",
       "camera",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDP2d1QSQtd-q0mYsFqz1j6aY5xom8AAItZgACD3WpS6y9NI05_Nt3NgQ",
   },
   {
     id: "attend-networking-event",
@@ -35,6 +38,8 @@ export const wishes: Wish[] = [
       "conversation topics",
       "networking app",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDQGd1QSQ-S39Oaucmr13WVTmCeivCAAIuZgACD3WpS5F_-pFq5DzaNgQ",
   },
   {
     id: "attend-passionate-workshop",
@@ -49,6 +54,8 @@ export const wishes: Wish[] = [
       "mentor",
       "certificate",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDQWd1QST-Fqd1hd2e39jW6ytZT_FtAAIvZgACD3WpS69B2JVO-WWaNgQ",
   },
   {
     id: "bake-a-cake-for-someone-special",
@@ -63,6 +70,8 @@ export const wishes: Wish[] = [
       "cake topper",
       "recipe book",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDQmd1QSR7tX6mF5ygbar5kvgkxiYxAAIwZgACD3WpSxVJMeBoXAgZNgQ",
   },
   {
     id: "be-a-mentor-to-someone",
@@ -77,6 +86,8 @@ export const wishes: Wish[] = [
       "pen",
       "mentor badge",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDQ2d1QSTafccFCpZrOy5V6kd2GUHpAAIxZgACD3WpSySpzHybgjBONgQ",
   },
   {
     id: "be-in-a-conscious-fulfilling-relationship",
@@ -91,6 +102,8 @@ export const wishes: Wish[] = [
       "matching jewelry",
       "book on relationships",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDRGd1QSQSNTAL1j9pNuma6VxEcfvwAAIyZgACD3WpS8mJk8aB8EHVNgQ",
   },
   {
     id: "befriend-a-stranger",
@@ -105,6 +118,8 @@ export const wishes: Wish[] = [
       "smile pin",
       "conversation starter book",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDRWd1QSSntINJBzT91__I0_or62aSAAIzZgACD3WpS8ecw92Us9ZjNgQ",
   },
   {
     id: "bury-the-hatchet-with-people-you-conflicted-in-the-past",
@@ -119,6 +134,8 @@ export const wishes: Wish[] = [
       "letter",
       "book of forgiveness",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDRmd1QST7y5nL-M3NrwUewhry4pUnAAI0ZgACD3WpS0cgaK75aisWNgQ",
   },
   {
     id: "camp-overnight",
@@ -133,6 +150,8 @@ export const wishes: Wish[] = [
       "flashlight",
       "marshmallows",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDR2d1QST-zNdKBf1EK2erHkbVbwjUAAI1ZgACD3WpS6iKTfzMejeBNgQ",
   },
   {
     id: "change-the-world",
@@ -147,6 +166,8 @@ export const wishes: Wish[] = [
       "advocacy materials",
       "motivational book",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDSGd1QSS_KpqcY89macjK1lmMxjB7AAI2ZgACD3WpS5B4I4L_NivbNgQ",
   },
   {
     id: "climb-a-mountain",
@@ -155,6 +176,8 @@ export const wishes: Wish[] = [
     tags: ["achievement", "fitness", "adrenaline", "inspiration"],
     emoji: "🏔️",
     associations: ["hiking gear", "rope", "boots", "trail map", "camera"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDU2d1QwzpmFCWDb19YldtpRHYREfjAAJaZgACD3WpS7oSLFeKR3FJNgQ",
   },
   {
     id: "commit-to-walking-10000-steps-daily",
@@ -169,6 +192,8 @@ export const wishes: Wish[] = [
       "walking route map",
       "hydration pack",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDVGd1QwzT-FPCthNZhtQOICp4K6g8AAJbZgACD3WpSxO_wgrMskq4NgQ",
   },
   {
     id: "contact-a-teacher-who-changed-your-life-to-thank-them",
@@ -177,6 +202,8 @@ export const wishes: Wish[] = [
     tags: ["kindness", "inspiration", "relationships"],
     emoji: "✍️",
     associations: ["thank you card", "book", "pen", "apple", "notebook"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDVWd1Qwy00sxA99WJJYeBy2ASMkEFAAJcZgACD3WpS4o22TDCroTONgQ",
   },
   {
     id: "cook-a-home-made-meal",
@@ -191,6 +218,8 @@ export const wishes: Wish[] = [
       "dining table",
       "apron",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDVmd1QwymckEWnDeoBtB9sW6vPg-JAAJdZgACD3WpS1eJ9HyvZlOaNgQ",
   },
   {
     id: "create-a-short-film-with-friends",
@@ -205,6 +234,8 @@ export const wishes: Wish[] = [
       "editing software",
       "clapperboard",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDV2d1QwxDYoN-sPnkYQv9Y3_8tDonAAJeZgACD3WpS5PbsexUKy7FNgQ",
   },
   {
     id: "create-time-capsule",
@@ -219,6 +250,8 @@ export const wishes: Wish[] = [
       "small trinkets",
       "burial spot marker",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDWGd1QwwvB84nQnkxDIFTEuyOfgMtAAJfZgACD3WpSx8E5xWhVwTBNgQ",
   },
   {
     id: "create-your-dream-home",
@@ -233,6 +266,8 @@ export const wishes: Wish[] = [
       "garden tools",
       "decor",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDWWd1QwwlaJFCgH_OrMo3IxL-XSAJAAJgZgACD3WpS2BBYejkK0deNgQ",
   },
   {
     id: "do-something-crazy",
@@ -247,6 +282,8 @@ export const wishes: Wish[] = [
       "challenge checklist",
       "bucket list entry",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDWmd1QwzunCVA72hha-PjBtiESjBvAAJhZgACD3WpS-aPdjnJsSpWNgQ",
   },
   {
     id: "do-volunteer-work",
@@ -261,6 +298,8 @@ export const wishes: Wish[] = [
       "support handbook",
       "donation box",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDW2d1QwxEhh-ZR7fGVfjg1b2QfY-kAAJiZgACD3WpSznYnIoTvoeONgQ",
   },
   {
     id: "donate-to-a-charity",
@@ -275,6 +314,8 @@ export const wishes: Wish[] = [
       "cause brochure",
       "fundraising box",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDXGd1QwyaZlc8m7fFC6-juB260C2gAAJjZgACD3WpSzmA3K-Dl0HMNgQ",
   },
   {
     id: "drink-2-liters-of-water-daily",
@@ -289,6 +330,8 @@ export const wishes: Wish[] = [
       "water filter",
       "infuser",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDZ2d1Q6AT_ndukLPvRCRunc_3RwxaAAJpZgACD3WpSzoRc_BmGWGmNgQ",
   },
   {
     id: "eat-a-healthier-diet",
@@ -303,6 +346,8 @@ export const wishes: Wish[] = [
       "meal prep containers",
       "water bottle",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDaGd1Q6B2wJ4mz3mPHm4ardBPjF6pAAJqZgACD3WpS8FZ2CgDhoWYNgQ",
   },
   {
     id: "experience-a-sunrise-sunset",
@@ -317,21 +362,9 @@ export const wishes: Wish[] = [
       "notebook",
       "sun hat",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDaWd1Q6Dbaqnj0EdEJW_h62ZUF_YPAAJrZgACD3WpS2LBjMVI-bGdNgQ",
   },
-  // {
-  //   id: "experience-an-obe",
-  //   description: "Experience an OBE (out-of-body experience)",
-  //   descriptionRus: "Испытать внетелесный опыт",
-  //   tags: ["mindfulness", "experiments", "inspiration"],
-  //   emoji: "🌀",
-  //   associations: [
-  //     "meditation guide",
-  //     "relaxing music",
-  //     "comfortable bed",
-  //     "dream journal",
-  //     "aromatherapy oils",
-  //   ],
-  // },
   {
     id: "explore-a-cave",
     description: "Explore a cave",
@@ -339,6 +372,8 @@ export const wishes: Wish[] = [
     tags: ["adrenaline", "fun", "travel", "inspiration"],
     emoji: "🕳️",
     associations: ["headlamp", "boots", "backpack", "gloves", "guidebook"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDamd1Q6AMMwa_Md7eUA4wcJDgmVjmAAJuZgACD3WpS2i9s8ueT-k_NgQ",
   },
   {
     id: "explore-iconic-landmarks-in-your-country",
@@ -353,21 +388,9 @@ export const wishes: Wish[] = [
       "souvenirs",
       "binoculars",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDa2d1Q6B7CMlngdyYdLWDEZ0c_vddAAJvZgACD3WpS4uJPn-LYEdINgQ",
   },
-  // {
-  //   id: "fall-asleep-in-the-arms-of-someone-you-love",
-  //   description: "Fall asleep in the arms of someone you love",
-  //   descriptionRus: "Заснуть в объятиях того, кого вы любите",
-  //   tags: ["love", "calm", "joy"],
-  //   emoji: "💤",
-  //   associations: [
-  //     "cozy blanket",
-  //     "pillow",
-  //     "soft music",
-  //     "candle",
-  //     "bedtime book",
-  //   ],
-  // },
   {
     id: "fall-in-love",
     description: "Fall in love",
@@ -381,6 +404,8 @@ export const wishes: Wish[] = [
       "photo album",
       "love letter",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDbGd1Q6AeQuoDgn331_tUTZnJ0abZAAJwZgACD3WpS-Bt7TgOz6q1NgQ",
   },
   {
     id: "fly-a-kite",
@@ -395,6 +420,8 @@ export const wishes: Wish[] = [
       "windy weather",
       "family outing",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDbWd1Q6CVPtbKAlo28lNSIKBZZMWBAAJyZgACD3WpS3vBPc-20T4MNgQ",
   },
   {
     id: "fly-hot-air-balloon",
@@ -403,6 +430,8 @@ export const wishes: Wish[] = [
     tags: ["inspiration", "fun", "adrenaline", "travel"],
     emoji: "🎈",
     associations: ["balloon ticket", "binoculars", "camera", "jacket", "hat"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDbmd1Q6BHB4yrd5QHn818DRoZExDLAAJzZgACD3WpS2IL3F0fXFqZNgQ",
   },
   {
     id: "fold-1000-origami-cranes",
@@ -417,6 +446,8 @@ export const wishes: Wish[] = [
       "box",
       "display frame",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDb2d1Q6CRx1o6jhWNcsi3hEXkVw7uAAJ0ZgACD3WpS3FoJBda4kTFNgQ",
   },
   {
     id: "further-study",
@@ -431,6 +462,8 @@ export const wishes: Wish[] = [
       "study group",
       "certificate",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDcGd1Q6C0OOSEAfomG5xix1xKQQoKAAJ1ZgACD3WpSw0RzxSpTm3DNgQ",
   },
   {
     id: "get-closure",
@@ -445,6 +478,8 @@ export const wishes: Wish[] = [
       "letters",
       "support group",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDe2d1RAusUXFWP2LGLMXuJX7QqZWEAAJ3ZgACD3WpS5VeyYP8GDdfNgQ",
   },
   {
     id: "get-drink-for-stranger",
@@ -459,6 +494,8 @@ export const wishes: Wish[] = [
       "conversation starter",
       "smile pin",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDfGd1RAtoJQ80hnYd03zEM6LQgHu3AAJ4ZgACD3WpSwzgHvL9cW_FNgQ",
   },
   {
     id: "get-featured-in-the-media",
@@ -473,6 +510,8 @@ export const wishes: Wish[] = [
       "award",
       "press release",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDfWd1RAt3462vP-hFGwtrtO2zh35xAAJ5ZgACD3WpS57TKpKYtj2CNgQ",
   },
   {
     id: "go-horseback-riding",
@@ -487,6 +526,8 @@ export const wishes: Wish[] = [
       "trail map",
       "riding gloves",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDfmd1RAvv5CVRvSVr3b9xf6RdwjKjAAJ6ZgACD3WpS0y2r63mI1RuNgQ",
   },
   {
     id: "go-on-a-blind-date",
@@ -501,6 +542,8 @@ export const wishes: Wish[] = [
       "conversation topics",
       "outfit",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDf2d1RAssDFiGSTcbr1zIjJnIp_cbAAJ7ZgACD3WpS67BAYEHEEMhNgQ",
   },
   {
     id: "go-on-a-cruise",
@@ -515,6 +558,8 @@ export const wishes: Wish[] = [
       "sun hat",
       "camera",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDgGd1RAvGAd0r0AYN7LS5I7ITzuynAAJ9ZgACD3WpSzoaPW4C9GnVNgQ",
   },
   {
     id: "go-on-a-meditation-retreat",
@@ -529,6 +574,8 @@ export const wishes: Wish[] = [
       "incense",
       "yoga mat",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDgWd1RAtqf21xMFC07RqbgA0iudO5AAJ-ZgACD3WpS61RvMZP0E3RNgQ",
   },
   {
     id: "go-rafting",
@@ -537,6 +584,8 @@ export const wishes: Wish[] = [
     tags: ["adrenaline", "fun", "fitness"],
     emoji: "🛶",
     associations: ["raft", "life jacket", "helmet", "paddle", "waterproof bag"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDgmd1RAsMBC-Lz_KNvsfzXQE_pqPPAAJ_ZgACD3WpS-vP0TYfgr2aNgQ",
   },
   {
     id: "go-scuba-diving",
@@ -551,6 +600,8 @@ export const wishes: Wish[] = [
       "underwater camera",
       "wetsuit",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDg2d1RAvkYv-nc12SauJ_9HWcd1kXAAKAZgACD3WpS__PfYSxie95NgQ",
   },
   {
     id: "go-skiing",
@@ -559,6 +610,8 @@ export const wishes: Wish[] = [
     tags: ["fitness", "fun", "adrenaline"],
     emoji: "⛷️",
     associations: ["skis", "helmet", "goggles", "snow jacket", "lift pass"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDhGd1RAu6WOT366vgIg100u67iwhpAAKBZgACD3WpS6X8uirFfge1NgQ",
   },
   {
     id: "go-stargazing",
@@ -573,6 +626,8 @@ export const wishes: Wish[] = [
       "thermos",
       "binoculars",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDj2d1RG_R-ELWpfNPdfp-hYlyGnY6AAKGZgACD3WpS2DoM1TBUz3fNgQ",
   },
   {
     id: "go-to-a-costume-party",
@@ -581,6 +636,8 @@ export const wishes: Wish[] = [
     tags: ["fun", "creativity", "friends", "joy"],
     emoji: "🎭",
     associations: ["costume", "mask", "props", "makeup", "party favors"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDkGd1RG8CQoLFjePvId7p9SzMPxiiAAKHZgACD3WpS7CxgwS0qpeLNgQ",
   },
   {
     id: "help-clean-up-a-park-or-beach",
@@ -595,6 +652,8 @@ export const wishes: Wish[] = [
       "tongs",
       "volunteer badge",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDkWd1RG9H1DiO9-ZzdBQo0SanGMChAAKIZgACD3WpS0JMg2XRgXPdNgQ",
   },
   {
     id: "help-someone-in-need",
@@ -609,6 +668,8 @@ export const wishes: Wish[] = [
       "thank you card",
       "support guide",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDkmd1RG-9GtSnKMk0WijJvO2WrICPAAKJZgACD3WpS-GuQI8AAQKgHTYE",
   },
   {
     id: "hit-bulls-eye-in-darts",
@@ -623,6 +684,8 @@ export const wishes: Wish[] = [
       "prize",
       "pub atmosphere",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDk2d1RG87YQsaugXWNM-p0uF9vGp1AAKKZgACD3WpS62n-iR3ckgjNgQ",
   },
   {
     id: "host-a-small-gathering-for-close-friends",
@@ -637,6 +700,8 @@ export const wishes: Wish[] = [
       "playlist",
       "photo booth props",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDlGd1RG-8g7mDvb1zxuQPMoKZN1-SAAKLZgACD3WpS7zwqGjWiFrENgQ",
   },
   {
     id: "join-a-yoga-or-pilates-class",
@@ -651,21 +716,9 @@ export const wishes: Wish[] = [
       "comfortable clothes",
       "yoga blocks",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDlWd1RG8TF7_3GzBHTg6kVJXSXAhtAAKMZgACD3WpSwQ44oXNFm8QNgQ",
   },
-  // {
-  //   id: "join-social-etiquette-class",
-  //   description: "Join a social etiquette class",
-  //   descriptionRus: "Присоединиться к классу по социальному этикету",
-  //   tags: ["growth", "relationships", "skills"],
-  //   emoji: "🎩",
-  //   associations: [
-  //     "class notes",
-  //     "guidebook",
-  //     "certificate",
-  //     "practice scenarios",
-  //     "mentor",
-  //   ],
-  // },
   {
     id: "knit-a-scarf",
     description: "Knit a scarf",
@@ -679,6 +732,8 @@ export const wishes: Wish[] = [
       "measuring tape",
       "scarf stand",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDlmd1RG_pJ1skQ82jhv2_cFyS0wGYAAKNZgACD3WpS59BOndJkAcSNgQ",
   },
   {
     id: "learn-a-new-creative-skill",
@@ -694,6 +749,8 @@ export const wishes: Wish[] = [
       "graphic tablet",
       "instructional book",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDl2d1RG_Fcr2wHJtfH0j3_Nr_9oygAAKOZgACD3WpS-tunWbQhsJyNgQ",
   },
   {
     id: "learn-martial-art",
@@ -708,6 +765,8 @@ export const wishes: Wish[] = [
       "practice dummy",
       "mentor",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDmGd1RG-9AtEbdqpIux8qjHdUNin6AAKPZgACD3WpS32IpmbWGs74NgQ",
   },
   {
     id: "learn-new-language",
@@ -722,6 +781,8 @@ export const wishes: Wish[] = [
       "language flashcards",
       "tutor",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDo2d1RM6ajQ96IzL6gLDjzxpvueohAAKSZgACD3WpS2LAQBcNd1GRNgQ",
   },
   {
     id: "learn-sign-language",
@@ -736,6 +797,8 @@ export const wishes: Wish[] = [
       "video lessons",
       "certificate",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDpGd1RM6u7ObvxReGlU8RG66Fhx2pAAKTZgACD3WpSyXAsXOTmw7JNgQ",
   },
   {
     id: "learn-small-talk",
@@ -750,6 +813,8 @@ export const wishes: Wish[] = [
       "practice partner",
       "confidence booster",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDpWd1RM6nF3Wp-if8UdwvQZZSyNtRAAKUZgACD3WpSyYOxcYQUUorNgQ",
   },
   {
     id: "learn-surfing",
@@ -764,6 +829,8 @@ export const wishes: Wish[] = [
       "beach towel",
       "sunblock",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDpmd1RM5xbXTuvKMzX5_OTq2HVBYCAAKVZgACD3WpS0MMhNeeDeKWNgQ",
   },
   {
     id: "learn-wine-appreciation",
@@ -778,29 +845,9 @@ export const wishes: Wish[] = [
       "notebook",
       "wine bottles",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDp2d1RM4Wu1r45quNKlcuxIBcDlmyAAKWZgACD3WpS-qntOyH_Y7ZNgQ",
   },
-  // {
-  //   id: "let-someone-know-how-much-they-mean-to-you",
-  //   description: "Let someone know how much they mean to you",
-  //   descriptionRus: "Дать понять кому-то, как много он для вас значит",
-  //   tags: ["love", "kindness", "relationships"],
-  //   emoji: "💌",
-  //   associations: ["letter", "gift", "flowers", "chocolates", "photo frame"],
-  // },
-  // {
-  //   id: "live-through-all-seasons",
-  //   description: "Live through all four seasons of the year",
-  //   descriptionRus: "Прожить все четыре времени года",
-  //   tags: ["inspiration", "fun", "calm", "growth"],
-  //   emoji: "🌦️",
-  //   associations: [
-  //     "seasonal calendar",
-  //     "photo album",
-  //     "weather gear",
-  //     "journal",
-  //     "seasonal recipes",
-  //   ],
-  // },
   {
     id: "make-a-difference-in-someones-life",
     description: "Make a difference in someone’s life",
@@ -814,6 +861,8 @@ export const wishes: Wish[] = [
       "donation receipt",
       "personalized gift",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDqGd1RM5uxihdV6Fy9SwzrdGrCEZcAAKXZgACD3WpSw0on5uZ0O0mNgQ",
   },
   {
     id: "make-a-good-deed",
@@ -828,21 +877,9 @@ export const wishes: Wish[] = [
       "acts of kindness guide",
       "flowers",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDqWd1RM7VbWa9x1KMvExCUhDFv6B4AAKYZgACD3WpSwjSOspvFkz4NgQ",
   },
-  // {
-  //   id: "make-a-heartfelt-surprise-to-someone",
-  //   description: "Make a heartfelt surprise to someone",
-  //   descriptionRus: "Сделать душевный сюрприз кому-то",
-  //   tags: ["kindness", "joy", "relationships", "fun"],
-  //   emoji: "🎁",
-  //   associations: [
-  //     "gift box",
-  //     "balloons",
-  //     "cake",
-  //     "confetti",
-  //     "thank you note",
-  //   ],
-  // },
   {
     id: "overcome-biggest-fear",
     description: "Overcome your biggest fear",
@@ -856,6 +893,8 @@ export const wishes: Wish[] = [
       "motivational quotes",
       "journal",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDqmd1RM5OYdKhIRAqmJQpbSzEE7AJAAKZZgACD3WpS--4oEJv7JzMNgQ",
   },
   {
     id: "participate-in-a-hackathon",
@@ -870,6 +909,8 @@ export const wishes: Wish[] = [
       "competition certificate",
       "snacks",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDq2d1RM5H06ouaWwQUnq1DqTdxNQCAAKaZgACD3WpSzt99GGd-bExNgQ",
   },
   {
     id: "plant-a-tree-and-watch-it-grow",
@@ -884,6 +925,8 @@ export const wishes: Wish[] = [
       "shovel",
       "tree marker",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDrGd1RM631xRPlXCbU2TI6YCu6Ux-AAKbZgACD3WpS2m7rRaweBBRNgQ",
   },
   {
     id: "play-in-a-movie",
@@ -892,6 +935,8 @@ export const wishes: Wish[] = [
     tags: ["creativity", "fun", "inspiration", "achievement"],
     emoji: "🎬",
     associations: ["script", "camera", "costume", "clapperboard", "spotlight"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDt2d1RUUXr5XUj2E5FGwNHWvLcPIeAAKgZgACD3WpS-4XPFJLbbnLNgQ",
   },
   {
     id: "play-musical-instrument",
@@ -906,6 +951,8 @@ export const wishes: Wish[] = [
       "metronome",
       "tuner",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDuGd1RUW30cGoTXB7CKnsZJrtqaRoAAKhZgACD3WpS8Yj-Fcs7G9DNgQ",
   },
   {
     id: "practice-mindfulness-meditation",
@@ -920,21 +967,9 @@ export const wishes: Wish[] = [
       "aromatherapy oils",
       "timer",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDuWd1RUUBmUmJ9VkeLIkMGlxf9GgzAAKiZgACD3WpS3tW01IE0b9JNgQ",
   },
-  // {
-  //   id: "protect-dolphins-and-marine-life",
-  //   description: "Protect dolphins and marine life",
-  //   descriptionRus: "Защищать дельфинов и морскую жизнь",
-  //   tags: ["kindness", "growth", "experiments", "inspiration"],
-  //   emoji: "🐬",
-  //   associations: [
-  //     "marine life book",
-  //     "reusable bottles",
-  //     "ocean cleaning tools",
-  //     "donation certificate",
-  //     "volunteer badge",
-  //   ],
-  // },
   {
     id: "publish-a-book",
     description: "Publish a book",
@@ -948,21 +983,9 @@ export const wishes: Wish[] = [
       "publisher contract",
       "library",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDumd1RUXsLb-btA4N9hJ2JCMILrH0AAKkZgACD3WpS7YJ6QIk_moINgQ",
   },
-  // {
-  //   id: "reach-your-ideal-weight",
-  //   description: "Reach your ideal weight",
-  //   descriptionRus: "Достичь своего идеального веса",
-  //   tags: ["fitness", "achievement", "health"],
-  //   emoji: "⚖️",
-  //   associations: [
-  //     "scale",
-  //     "meal plan",
-  //     "workout gear",
-  //     "healthy snacks",
-  //     "fitness tracker",
-  //   ],
-  // },
   {
     id: "read-12-books",
     description: "Read 12 books, one for each month of the year",
@@ -976,6 +999,8 @@ export const wishes: Wish[] = [
       "bookmark",
       "booklight",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDu2d1RUVQr01JzjcIUThCrUkpUysRAAKlZgACD3WpSw9uV_9kZCO3NgQ",
   },
   {
     id: "read-unexpected-book",
@@ -990,6 +1015,8 @@ export const wishes: Wish[] = [
       "library card",
       "journal",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDvGd1RUWAVMvgaTz1BCL2JGcwhdO_AAKmZgACD3WpS8Nxf_T8io5vNgQ",
   },
   {
     id: "ride-roller-coaster",
@@ -1004,6 +1031,8 @@ export const wishes: Wish[] = [
       "friends",
       "sunglasses",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDvWd1RUWahX40ynqbJGprN9dZN_YZAAKnZgACD3WpSzMbXSnGh5LDNgQ",
   },
   {
     id: "romantic-getaway",
@@ -1018,6 +1047,8 @@ export const wishes: Wish[] = [
       "beach",
       "travel tickets",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDvmd1RUWvYZVJQXT5_57c59faC2SdAAKoZgACD3WpS-tyXZZzbvEnNgQ",
   },
   {
     id: "run-a-marathon",
@@ -1032,21 +1063,9 @@ export const wishes: Wish[] = [
       "medal",
       "hydration pack",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDv2d1RUVtwPXb7Cfn5x1pZXh7c6XUAAKpZgACD3WpS9R-WiDouOM8NgQ",
   },
-  // {
-  //   id: "run-barefoot",
-  //   description: "Run barefoot",
-  //   descriptionRus: "Бегать босиком",
-  //   tags: ["fitness", "fun", "experiments", "health"],
-  //   emoji: "🏃‍♂️",
-  //   associations: [
-  //     "barefoot shoes",
-  //     "grass field",
-  //     "fitness tracker",
-  //     "running path",
-  //     "hydration pack",
-  //   ],
-  // },
   {
     id: "see-cherry-blossoms-in-japan",
     description: "See cherry blossoms in Japan",
@@ -1060,6 +1079,8 @@ export const wishes: Wish[] = [
       "photo album",
       "travel guide",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDwGd1RUXpU3mqJiCERfj5-MytoI89AAKqZgACD3WpSzSYFoh_-Hb2NgQ",
   },
   {
     id: "see-snow",
@@ -1074,6 +1095,8 @@ export const wishes: Wish[] = [
       "sled",
       "snowman kit",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDy2d1RbXLpj6O53zM3rDIIuota1gSAAKuZgACD3WpS_nYVNdOm9ICNgQ",
   },
   {
     id: "see-the-mona-lisa-in-louvre",
@@ -1088,6 +1111,8 @@ export const wishes: Wish[] = [
       "guidebook",
       "sketchpad",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDzGd1RbXMJTBfLsej9bjvsMSIitgbAAKvZgACD3WpS-AR6fR0u6sWNgQ",
   },
   {
     id: "see-the-northern-lights",
@@ -1102,6 +1127,8 @@ export const wishes: Wish[] = [
       "wool hat",
       "travel diary",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDzWd1RbXUEhAVDV0gSQaJHU6pUzVsAAKwZgACD3WpS1yKm1wrmf0FNgQ",
   },
   {
     id: "sing-to-an-audience",
@@ -1116,6 +1143,8 @@ export const wishes: Wish[] = [
       "spotlight",
       "music tracks",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDzmd1RbVo5FydcurFuyCzZEa45GbZAAKxZgACD3WpS9eU5Zwyb5ZfNgQ",
   },
   {
     id: "speak-publicly",
@@ -1130,6 +1159,8 @@ export const wishes: Wish[] = [
       "feedback form",
       "confidence booster",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAIDz2d1RbV6koafwGwWf2Ms3QVXiVTdAAKyZgACD3WpS6CbjIXNE1AgNgQ",
   },
   {
     id: "start-a-blog-or-vlog",
@@ -1144,6 +1175,8 @@ export const wishes: Wish[] = [
       "microphone",
       "social media",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID0Gd1RbUi3RXuxmtmZeqxyi2IDo-sAAKzZgACD3WpS31DlcdTLfDXNgQ",
   },
   {
     id: "start-a-collection",
@@ -1158,21 +1191,9 @@ export const wishes: Wish[] = [
       "rare items",
       "catalog",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID0Wd1RbVnFPv9bH5n2OqBSAwSke14AAK2ZgACD3WpS1o51OJB5pCMNgQ",
   },
-  // {
-  //   id: "start-your-business",
-  //   description: "Start your business",
-  //   descriptionRus: "Начать свой бизнес",
-  //   tags: ["achievement", "growth", "inspiration", "skills"],
-  //   emoji: "📈",
-  //   associations: [
-  //     "business plan",
-  //     "office setup",
-  //     "marketing materials",
-  //     "logo design",
-  //     "finance tracker",
-  //   ],
-  // },
   {
     id: "take-a-road-trip-to-lesser-known-destinations",
     description: "Take a road trip to lesser-known destinations",
@@ -1186,6 +1207,8 @@ export const wishes: Wish[] = [
       "travel playlist",
       "photo album",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID0md1RbXIV1v6Gi9ZSAflAAEhexi03QACt2YAAg91qUtoAd60zrbMWDYE",
   },
   {
     id: "take-part-in-a-triathlon",
@@ -1200,6 +1223,8 @@ export const wishes: Wish[] = [
       "goggles",
       "energy gel",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID02d1RbUF6sUjvcGrYF_pSs-KA6d_AAK4ZgACD3WpSx_-4VQhbiDUNgQ",
   },
   {
     id: "take-public-speaking-course",
@@ -1214,6 +1239,8 @@ export const wishes: Wish[] = [
       "mentor feedback",
       "stage",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID1Gd1RbX1cBKStmy5JgqvIbWJZl9cAAK5ZgACD3WpS-4KcbXpCZK5NgQ",
   },
   {
     id: "take-up-dancing",
@@ -1228,6 +1255,8 @@ export const wishes: Wish[] = [
       "dance floor",
       "costume",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID32d1RhuxY28IxJmlgYh6K0VCBNpCAALAZgACD3WpS-UntmM_HXlRNgQ",
   },
   {
     id: "take-up-new-sport",
@@ -1242,21 +1271,9 @@ export const wishes: Wish[] = [
       "water bottle",
       "fitness tracker",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID4Gd1Rhs9Yd9j2c_nfZGLRyOUhw7ZAALBZgACD3WpS0CDtOwJQ8DCNgQ",
   },
-  // {
-  //   id: "tell-10-people-about-bucket-list",
-  //   description: "Tell 10 people about your bucket list",
-  //   descriptionRus: "Рассказать 10 людям о своем списке желаний",
-  //   tags: ["inspiration", "fun", "relationships", "growth"],
-  //   emoji: "📝",
-  //   associations: [
-  //     "bucket list notebook",
-  //     "social media post",
-  //     "friends gathering",
-  //     "photo collage",
-  //     "discussion topics",
-  //   ],
-  // },
   {
     id: "tell-your-parents-and-siblings-you-love-them",
     description: "Tell your parents and siblings you love them",
@@ -1270,6 +1287,8 @@ export const wishes: Wish[] = [
       "chocolates",
       "candle",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID4Wd1Rhu_f4BrwdeqP_y6ckKr1GUUAALCZgACD3WpS9zdoFruRzdvNgQ",
   },
   {
     id: "throw-a-mega-party",
@@ -1284,6 +1303,8 @@ export const wishes: Wish[] = [
       "drinks",
       "balloons",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID4md1RhtLutTYJyvnxiW4u-EZqZFRAALDZgACD3WpS28QDPzZmLslNgQ",
   },
   {
     id: "travel-around-the-world",
@@ -1300,6 +1321,8 @@ export const wishes: Wish[] = [
       "souvenir",
       "camera",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID42d1Rhso154Cs1cQnf8a1eS1gAdEAALFZgACD3WpS-ruY2NS_d0wNgQ",
   },
   {
     id: "trek-inca-trail",
@@ -1308,6 +1331,8 @@ export const wishes: Wish[] = [
     tags: ["travel", "adventure", "achievement", "fitness"],
     emoji: "⛰️",
     associations: ["hiking boots", "backpack", "map", "water bottle", "camera"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID5Gd1RhuIfGjJLRSrKy0RQLYBpXeOAALGZgACD3WpS8AYLTAb7tEONgQ",
   },
   {
     id: "try-a-profession-in-a-different-field",
@@ -1322,21 +1347,9 @@ export const wishes: Wish[] = [
       "mentorship program",
       "notepad",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID5Wd1RhvZYacQ_B5lwK1LQcEFAhjhAALHZgACD3WpS42vd-Gqb3orNgQ",
   },
-  // {
-  //   id: "try-frontline-jobs",
-  //   description: "Try frontline jobs for the experience",
-  //   descriptionRus: "Попробовать работу на передовой для получения опыта",
-  //   tags: ["growth", "experiments", "achievement", "skills"],
-  //   emoji: "🛠️",
-  //   associations: [
-  //     "uniform",
-  //     "name badge",
-  //     "work gloves",
-  //     "task checklist",
-  //     "mentor guide",
-  //   ],
-  // },
   {
     id: "try-new-cuisine",
     description: "Try a new cuisine from a different culture",
@@ -1350,6 +1363,8 @@ export const wishes: Wish[] = [
       "dining set",
       "spices",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID5md1Rhu1gH6QNYu0QajIJK4kvITeAALIZgACD3WpS4Aup0IyeG8nNgQ",
   },
   {
     id: "try-skydiving",
@@ -1358,15 +1373,9 @@ export const wishes: Wish[] = [
     tags: ["adrenaline", "fun", "achievement", "inspiration"],
     emoji: "🪂",
     associations: ["parachute", "jumpsuit", "helmet", "goggles", "certificate"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID52d1RhvBGu0B1UV8Lz4l7ywwLejxAALJZgACD3WpS7YGw0Ro5FXkNgQ",
   },
-  // {
-  //   id: "visit-5-unesco-sites",
-  //   description: "Visit at least 5 UNESCO World Heritage Sites",
-  //   descriptionRus: "Посетить 5 объектов Всемирного наследия ЮНЕСКО",
-  //   tags: ["travel", "inspiration", "growth", "achievement"],
-  //   emoji: "🌏",
-  //   associations: ["passport", "guidebook", "map", "camera", "souvenirs"],
-  // },
   {
     id: "visit-a-castle",
     description: "Visit a castle",
@@ -1380,6 +1389,8 @@ export const wishes: Wish[] = [
       "camera",
       "historical book",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID6Gd1RhsFxVkhed3BDKYqx3s8fjU7AALKZgACD3WpS1hluvIQ5gWbNgQ",
   },
   {
     id: "visit-a-volcano",
@@ -1395,6 +1406,8 @@ export const wishes: Wish[] = [
       "camera",
       "backpack",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID82d1RnKN2fjCTUhOVyLf6PJU4L_5AALRZgACD3WpS8f6beyBwE4ONgQ",
   },
   {
     id: "volunteer-at-a-hospice",
@@ -1409,6 +1422,8 @@ export const wishes: Wish[] = [
       "thank you card",
       "flowers",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID9Gd1RnKVPnQXuVmq5_P6QPmTMvAFAALSZgACD3WpSzpfTJ9hvIy5NgQ",
   },
   {
     id: "walk-dance-barefoot-in-the-rain",
@@ -1423,6 +1438,8 @@ export const wishes: Wish[] = [
       "puddle",
       "music playlist",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID9Wd1RnIVruOHjazpyCr2Gpds6Xo8AALTZgACD3WpS65NwEU_Rix0NgQ",
   },
   {
     id: "win-a-lucky-draw",
@@ -1437,6 +1454,8 @@ export const wishes: Wish[] = [
       "confetti",
       "trophy",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID9md1RnKnKEKjct1DM5sE8CaBw1_DAALUZgACD3WpS0nr31RZNMJ2NgQ",
   },
   {
     id: "witness-a-solar-eclipse",
@@ -1451,6 +1470,8 @@ export const wishes: Wish[] = [
       "celestial chart",
       "notebook",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID92d1RnKR1dHpqfHPnyUK-K6904b5AALVZgACD3WpS4yA_jAe7fbINgQ",
   },
   {
     id: "write-a-letter-to-someone-you-admire",
@@ -1459,6 +1480,8 @@ export const wishes: Wish[] = [
     tags: ["inspiration", "kindness", "creativity"],
     emoji: "✉️",
     associations: ["stationery", "envelope", "pen", "stamps", "seal wax"],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID-Gd1RnKbLHz9MRx6k9R4naM7iGQmAALWZgACD3WpS2gAAc1EdkGYojYE",
   },
   {
     id: "write-daily-gratitude-journal",
@@ -1473,6 +1496,8 @@ export const wishes: Wish[] = [
       "gratitude prompts",
       "bookmark",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID-Wd1RnIoe71AWwG-QWhDqyDLMrE8AALXZgACD3WpSzwVulgtksWCNgQ",
   },
   {
     id: "write-letter-to-future-self",
@@ -1487,5 +1512,7 @@ export const wishes: Wish[] = [
       "notebook",
       "seal wax",
     ],
+    socialCardFileId:
+      "BQACAgIAAxkBAAID-md1RnKtvz0fTwYBIh4alkXLxEOaAALYZgACD3WpS7h6WYVwtXwHNgQ",
   },
 ];
