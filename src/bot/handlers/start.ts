@@ -8,9 +8,12 @@ const greetingPhotoId = `AgACAgIAAxkBAAICKGd01ccwMBE-tNNom2ciuKvDsa02AAIZ7DEbD3W
 export function setupStart(bot: Bot<MyContext>) {
   bot.command("start", async (ctx) => {
     ctx.session.state = BotState.Started;
-    ctx.session.userInfo.firstName = ctx.from?.first_name || "";
-    ctx.session.userInfo.lastName = ctx.from?.last_name || "";
-    ctx.session.userInfo.id = String(ctx.from?.id || "");
+
+    ctx.session.userInfo = {
+      firstName: ctx.from?.first_name || "",
+      lastName: ctx.from?.last_name || "",
+      id: String(ctx.from?.id || ""),
+    };
 
     await sendAnalyticsEvent({
       distinctId: String(ctx.chat?.id || ctx.from?.id),
