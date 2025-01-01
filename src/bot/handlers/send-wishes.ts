@@ -28,13 +28,17 @@ async function sendCards(chatId: string, wishesIds: string[]) {
 
   await bot.api.sendMessage(chatId, `Твои желания:\n${wishesText}`);
 
+  const promises: Promise<any>[] = [];
+
   for (const imagesUrlsChunk of imagesUrlsChunks) {
     const media = imagesUrlsChunk.map<InputMediaPhoto>((url) => ({
       type: "photo",
       media: url,
     }));
-    await bot.api.sendMediaGroup(chatId, media);
+    promises.push(bot.api.sendMediaGroup(chatId, media));
   }
+
+  await Promise.all(promises);
 }
 
 export async function sendWishes(chatId: string, wishesIds: string[]) {
