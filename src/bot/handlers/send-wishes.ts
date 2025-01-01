@@ -50,7 +50,7 @@ async function sendCards(chatId: string, wishesIds: string[]) {
         inline_keyboard: [
           [
             {
-              text: "✨ Повыбирать ещё желаний",
+              text: "✨ Выбрать желания ещё раз",
               web_app: {
                 url: `${WEBAPP_URL}?chat_id=${chatId}`,
               },
@@ -58,7 +58,7 @@ async function sendCards(chatId: string, wishesIds: string[]) {
           ],
           [
             {
-              text: "📲 Заходи в мой Telegram-канал",
+              text: "📲 Подписаться на мой Telegram-канал",
               url: "https://t.me/petya_projects",
             },
           ],
