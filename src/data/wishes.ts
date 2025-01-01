@@ -1078,7 +1078,7 @@ export const wishes: Wish[] = [
   {
     id: "see-the-mona-lisa-in-louvre",
     description: "See the Mona Lisa in Louvre",
-    descriptionRus: "Посмотреть на Монну Лизу в Лувре",
+    descriptionRus: "Посмотреть на Мону Лизу в Лувре",
     tags: ["travel", "inspiration", "culture"],
     emoji: "🖼️",
     associations: [
@@ -1260,7 +1260,7 @@ export const wishes: Wish[] = [
   {
     id: "tell-your-parents-and-siblings-you-love-them",
     description: "Tell your parents and siblings you love them",
-    descriptionRus: "Сказать своим родителям и братьям/сестрам, что я их люблю",
+    descriptionRus: "Сказать своим родителям и братьям/сестрам, что я их люблю",
     tags: ["love", "relationships", "kindness", "joy"],
     emoji: "❤️",
     associations: [
