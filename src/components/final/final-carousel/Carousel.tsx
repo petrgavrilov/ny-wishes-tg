@@ -56,7 +56,7 @@ export default function FinalCarousel({
   useEffect(() => {
     const wish = likedWishes[activeIndex] || null;
     setCurrentWish(wish);
-  }, [activeIndex]);
+  }, [activeIndex, likedWishes]);
 
   useEffect(() => {
     (async (currentWish: Wish | null) => {

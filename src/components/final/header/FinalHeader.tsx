@@ -4,7 +4,7 @@ import { useWishes } from "@/providers/wishes";
 import { getDeclension } from "@/helpers/get-declension";
 
 export default function FinalHeader() {
-  const { likedWishesCount } = useWishes();
+  const { likedWishesCount, sentToBot } = useWishes();
 
   const title = `${likedWishesCount} ${getDeclension(likedWishesCount, [
     "желание",
@@ -24,13 +24,13 @@ export default function FinalHeader() {
             Ух ты, вот это списочек получился!
           </p>
           <p className="final-info-text">
-            Собрал для тебя карточки с желаниями, не забудь их сохранить и
-            поделиться с друзьями.
+            Собрал для тебя карточки с желаниями
           </p>
-          <p className="final-info-text">
-            Еще отправил список желаний в бот, можешь попросить прислать его
-            прислать картинки
-          </p>
+          {sentToBot && (
+            <p className="final-info-text">
+              Отправил список желаний и карточки в бот
+            </p>
+          )}
         </>
       )}
     </div>

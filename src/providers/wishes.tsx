@@ -9,6 +9,8 @@ import {
   useEffect,
   useState,
 } from "react";
+import { useTelegramSdk } from "./telegram-sdk";
+import { SendWishesRequest } from "@/types/send-wishes";
 
 interface WishesContext {
   wishes: Wish[];
@@ -22,9 +24,12 @@ interface WishesContext {
   likedWishesCount: number;
   dislikedWishesCount: number;
 
+  sentToBot: boolean;
+
   setWishes: Dispatch<SetStateAction<Wish[]>>;
   setMarkedWishes: Dispatch<SetStateAction<MarkedWishes>>;
   resetWishes: () => void;
+  sendWishesToBot: () => void;
 }
 
 const WishesContext = createContext<WishesContext | null>(null);
@@ -34,9 +39,11 @@ export const WishesProvider = ({
   data,
   children,
 }: PropsWithChildren<{ data: Wish[] }>) => {
+  const { chatId } = useTelegramSdk();
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [shuffledWishes, setShuffledWishes] = useState<Wish[]>([]);
   const [markedWishes, setMarkedWishes] = useState<MarkedWishes>({});
+  const [sentToBot, setSentToBot] = useState<boolean>(false);
 
   useEffect(() => {
     const wishes = [...data];
@@ -63,6 +70,28 @@ export const WishesProvider = ({
     setShuffledWishes(wishes.sort(() => Math.random() - 0.5));
   };
 
+  const sendWishesToBot = () => {
+    if (!chatId || !likedWishes.length) {
+      return;
+    }
+
+    const request: SendWishesRequest = {
+      chatId,
+      wishesIds: likedWishes.map((wish) => wish.id),
+    };
+
+    fetch(`/api/send-wishes`, {
+      method: "POST",
+      body: JSON.stringify(request),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          setSentToBot(true);
+        }
+      });
+  };
+
   const value: WishesContext = {
     wishes,
     markedWishes,
@@ -76,10 +105,12 @@ export const WishesProvider = ({
     dislikedWishesCount,
 
     shuffledWishes,
+    sentToBot,
 
     setWishes,
     setMarkedWishes,
     resetWishes,
+    sendWishesToBot,
   };
 
   return (

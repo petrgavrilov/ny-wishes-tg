@@ -38,6 +38,7 @@ export interface SessionData {
     emotions: string[];
     goals: string[];
   };
+  wishesIds: string[];
 }
 
 export type MyContext = Context & SessionFlavor<SessionData>;

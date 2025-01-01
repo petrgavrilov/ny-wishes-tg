@@ -7,6 +7,7 @@ import "./WishesActions.scss";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
+import { useWishes } from "@/providers/wishes";
 
 function LikeButton({
   onClick,
@@ -48,9 +49,11 @@ function DislikeButton({
 
 function FinishButton({ isDisabled }: { isDisabled: boolean }) {
   const router = useRouter();
+  const { sendWishesToBot } = useWishes();
   const { hapticFeedback } = useTelegramSdk();
 
   const handleFinish = () => {
+    sendWishesToBot();
     router.push("/final");
     hapticFeedback();
   };

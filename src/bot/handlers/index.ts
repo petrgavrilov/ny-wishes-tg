@@ -12,4 +12,5 @@ export function setupHandlers(bot: Bot<MyContext>) {
   setupFileId(bot);
   setupPromptName(bot);
   setupQuiz(bot);
+  setupWishes(bot);
 }
