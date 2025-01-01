@@ -74,7 +74,7 @@ export default function CardsPage() {
           quality: 1.0,
           width: 1080,
           height: 1920,
-          pixelRatio: 1,
+          pixelRatio: 2,
         });
         console.log(`${wish.id} - png created`);
         const base64 = dataUrl.split(",")[1]; // Extract base64 content

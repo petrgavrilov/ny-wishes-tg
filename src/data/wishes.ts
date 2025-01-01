@@ -577,7 +577,7 @@ export const wishes: Wish[] = [
   {
     id: "go-to-a-costume-party",
     description: "Go to a costume party",
-    descriptionRus: "Пойти на костюмированную вечеринку",
+    descriptionRus: "Пойти на костюмированную вечеринку",
     tags: ["fun", "creativity", "friends", "joy"],
     emoji: "🎭",
     associations: ["costume", "mask", "props", "makeup", "party favors"],

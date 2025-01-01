@@ -3,7 +3,7 @@ import { bot } from "../bot";
 import { MyContext } from "../types";
 import { wishes } from "@/data/wishes";
 import { WEBAPP_URL } from "../start";
-import { InputMediaPhoto } from "grammy/types";
+import { InputMediaDocument } from "grammy/types";
 import { sendAnalyticsEvent } from "../analytics";
 
 const MAX_PHOTOS = 10;
@@ -32,8 +32,12 @@ async function sendCards(chatId: string, wishesIds: string[]) {
   const promises: Promise<any>[] = [];
 
   for (const imagesUrlsChunk of imagesUrlsChunks) {
-    const media = imagesUrlsChunk.map<InputMediaPhoto>((url) => ({
-      type: "photo",
+    // const media = imagesUrlsChunk.map<InputMediaPhoto>((url) => ({
+    //   type: "photo",
+    //   media: url,
+    // }));
+    const media = imagesUrlsChunk.map<InputMediaDocument>((url) => ({
+      type: "document",
       media: url,
     }));
     promises.push(bot.api.sendMediaGroup(chatId, media));
