@@ -7,6 +7,7 @@ function initial(): SessionData {
     state: BotState.Initial,
     userName: undefined,
     quiz: { priorities: [], emotions: [], goals: [] },
+    wishesIds: [],
   };
 }
 
