@@ -59,7 +59,11 @@ function RootInner({ children }: PropsWithChildren) {
   });
 
   const searchParams = new URLSearchParams(window.location.search);
-  const chatId = searchParams.get("chat_id") || "";
+  const chatId =
+    searchParams.get("chat_id") || window.localStorage.getItem("nywab_chat_id");
+  if (chatId) {
+    window.localStorage.setItem("nywab_chat_id", chatId);
+  }
 
   return (
     <TelegramSdkProvider
