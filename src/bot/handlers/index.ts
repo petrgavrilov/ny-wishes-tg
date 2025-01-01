@@ -5,6 +5,7 @@ import { setupStart } from "./start";
 import { setupHelp } from "./help";
 import { setupPromptName } from "./prompt-name";
 import { setupQuiz } from "./quiz";
+import { setupWishes } from "./send-wishes";
 
 export function setupHandlers(bot: Bot<MyContext>) {
   setupStart(bot);
