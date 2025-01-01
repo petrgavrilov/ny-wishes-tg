@@ -1,14 +1,19 @@
 import { useWishes } from "@/providers/wishes";
 import "./Carousel.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/image";
 import "swiper/css";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { Wish } from "@/data/wishes";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
 import { motion } from "motion/react";
 import { ShareIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
+
+const debounce = (func, wait) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+};
 
 interface FinalCarouselProps {
   startId: string | undefined;
@@ -19,51 +24,52 @@ export default function FinalCarousel({
   startId,
   setIsCarouselVisible,
 }: FinalCarouselProps) {
-  const initRef = useRef(false);
-  const swiperRef = useRef<any>(null);
+  const carouselRef = useRef<HTMLElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const { hapticFeedback } = useTelegramSdk();
   const [currentWish, setCurrentWish] = useState<Wish | null>(null);
   const { likedWishes } = useWishes();
 
-  const updateCurrentWish = () => {
-    if (!swiperRef.current) {
-      return;
+  useEffect(() => {
+    const carousel = carouselRef.current;
+
+    const handleScroll = debounce(() => {
+      if (carousel) {
+        const slideWidth = carousel.offsetWidth;
+        const currentIndex = Math.round(carousel.scrollLeft / slideWidth);
+        setActiveIndex(currentIndex);
+      }
+    }, 100);
+
+    if (carousel) {
+      carousel.addEventListener("scroll", handleScroll);
     }
 
-    const activeIndex: number = (swiperRef.current as any).realIndex;
-    const currentWish = likedWishes[activeIndex];
-    setCurrentWish(currentWish || null);
-  };
-
-  const handleSlideChange = () => {
-    updateCurrentWish();
-  };
-
-  const setStartSlide = (startId?: string) => {
-    if (!startId || !swiperRef.current) {
-      return;
-    }
-
-    const startIndex = likedWishes.findIndex((wish) => wish.id === startId);
-
-    if (startIndex < 0) {
-      return;
-    }
-
-    swiperRef.current.slideTo(startIndex);
-  };
-
-  const handleSwiperInit = (swiper: any) => {
-    swiperRef.current = swiper;
-    updateCurrentWish();
-  };
+    return () => {
+      if (carousel) {
+        carousel.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
 
   useEffect(() => {
-    if (!initRef.current) {
-      setStartSlide(startId);
-      initRef.current = true;
+    const wish = likedWishes[activeIndex] || null;
+    setCurrentWish(wish);
+  }, [activeIndex]);
+
+  useEffect(() => {
+    if (startId) {
+      const startIndex = likedWishes.findIndex((wish) => wish.id === startId);
+      if (startIndex > -1 && carouselRef.current) {
+        const carouselEl = carouselRef.current;
+        const width = carouselEl.clientWidth;
+        carouselEl.scroll({
+          left: startIndex * width,
+          behavior: "instant",
+        });
+      }
     }
-  }, [startId, setStartSlide]);
+  }, []);
 
   const handleShare = async () => {
     if (currentWish === null) {
@@ -88,23 +94,6 @@ export default function FinalCarousel({
     await navigator.share(shareData);
   };
 
-  const handleDownload = () => {
-    if (currentWish === null) {
-      return;
-    }
-
-    const imageName = `${currentWish.id}.png`;
-    const cardUrl = `/social-cards/${imageName}`;
-
-    const link = document.createElement("a");
-    link.target = "_blank";
-    link.href = cardUrl;
-    link.download = imageName;
-
-    hapticFeedback();
-    link.click();
-  };
-
   const handleClose = () => {
     setIsCarouselVisible(false);
     hapticFeedback();
@@ -112,35 +101,20 @@ export default function FinalCarousel({
 
   return (
     <>
-      {" "}
       <div className="carousel-container">
-        <Swiper
-          spaceBetween={0}
-          slidesPerView={1}
-          onSlideChange={handleSlideChange}
-          onSwiper={handleSwiperInit}
-          style={{
-            height: "100%",
-            width: "100%",
-          }}
-        >
+        <div className="carousel" ref={carouselRef}>
           {likedWishes.map((wish) => {
             return (
-              <SwiperSlide key={wish.id}>
-                <div className="slide">
-                  <Image
-                    className="slide-image"
-                    src={`/social-cards/${wish.id}.png`}
-                    alt={wish.description}
-                    width={540}
-                    height={960}
-                    priority={true}
-                  />
-                </div>
-              </SwiperSlide>
+              <div key={wish.id} className="slide">
+                <img
+                  className="slide-image"
+                  src={`/social-cards/${wish.id}.png`}
+                  alt={wish.description}
+                />
+              </div>
             );
           })}
-        </Swiper>
+        </div>
 
         <div className="slide-actions">
           <motion.button
@@ -150,13 +124,14 @@ export default function FinalCarousel({
           >
             <ShareIcon className="slide-action-button-icon" />
           </motion.button>
-          <motion.button
+          {/* todo: show share button only where it works */}
+          {/* <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={handleDownload}
             className="slide-action-button -download"
           >
             <ArrowDownTrayIcon className="slide-action-button-icon" />
-          </motion.button>
+          </motion.button> */}
         </div>
       </div>
       <div className="close-panel">
