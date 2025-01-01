@@ -27,7 +27,7 @@ async function sendCards(chatId: string, wishesIds: string[]) {
   );
   const imagesUrlsChunks = createChunks(imagesUrls, MAX_PHOTOS);
 
-  await bot.api.sendMessage(chatId, `Твои желания:\n${wishesText}`);
+  await bot.api.sendMessage(chatId, `Список желаний:\n\n${wishesText}`);
 
   const promises: Promise<any>[] = [];
 

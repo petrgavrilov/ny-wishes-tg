@@ -2,6 +2,18 @@ import { Bot } from "grammy";
 import { MyContext } from "../types";
 
 export function setupFileId(bot: Bot<MyContext>) {
+  bot.on("message:file", async (ctx) => {
+    const document = ctx.message.document;
+    if (document === undefined) {
+      return;
+    }
+
+    const fileId = document.file_id;
+    const fileName = document.file_name;
+
+    await ctx.reply(`${fileName}:\n \`${fileId}\``, { parse_mode: "Markdown" });
+  });
+
   bot.on("message:media", async (ctx) => {
     let file_id: string | undefined;
 
