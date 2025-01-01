@@ -10,8 +10,8 @@ import { setupWishes } from "./send-wishes";
 export function setupHandlers(bot: Bot<MyContext>) {
   setupStart(bot);
   setupHelp(bot);
+  setupWishes(bot);
   setupFileId(bot);
   setupPromptName(bot);
   setupQuiz(bot);
-  setupWishes(bot);
 }
