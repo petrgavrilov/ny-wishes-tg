@@ -8,6 +8,8 @@ export interface Wish {
   socialCardFileId: string;
 }
 
+export const MAX_LIKES = 50;
+
 export const wishes: Wish[] = [
   {
     id: "attend-a-music-festival-or-concert",

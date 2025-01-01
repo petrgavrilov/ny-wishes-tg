@@ -11,6 +11,7 @@ import {
 } from "react";
 import { useTelegramSdk } from "./telegram-sdk";
 import { SendWishesRequest } from "@/types/send-wishes";
+import { shuffleArray } from "@/helpers/shuffle-array";
 
 interface WishesContext {
   wishes: Wish[];
@@ -46,9 +47,11 @@ export const WishesProvider = ({
   const [sentToBot, setSentToBot] = useState<boolean>(false);
 
   useEffect(() => {
-    const wishes = [...data];
+    const wishes = data;
     setWishes(wishes);
-    setShuffledWishes([...wishes].sort(() => Math.random() - 0.5));
+    const shuffledWishes = [...wishes];
+    shuffleArray(shuffledWishes);
+    setShuffledWishes(shuffledWishes);
   }, [data]);
 
   const wishesCount = wishes.length;

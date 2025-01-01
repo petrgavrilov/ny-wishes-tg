@@ -6,14 +6,7 @@ import { useTelegramSdk } from "@/providers/telegram-sdk";
 import { motion } from "motion/react";
 import { ShareIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
-
-const debounce = (func, wait) => {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-};
+import { debounce } from "@/helpers/debounce";
 
 interface FinalCarouselProps {
   startId: string | undefined;

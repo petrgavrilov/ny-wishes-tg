@@ -1,97 +1,20 @@
 import "./WishesTinder.scss";
-import Image from "next/image";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  useMotionValueEvent,
-  useTransform,
-} from "motion/react";
 
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { Wish } from "@/data/wishes";
+import { AnimatePresence, motion } from "motion/react";
+
+import {
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
+import { MAX_LIKES, Wish } from "@/data/wishes";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
 import { useWishes } from "@/providers/wishes";
+import WishesTinderCard, { Card } from "./WishesTinderCard";
 
-interface Card {
-  image: string;
-  text: string;
-  id: string;
-}
-
-interface CardProps extends Card {
-  cards: Card[];
-  markCard: (id: string, type: "like" | "dislike") => void;
-  setNextCardType: Dispatch<React.SetStateAction<"left" | "right" | null>>;
-  nextCardType: "left" | "right" | null;
-}
-
-function Card({
-  image,
-  text,
-  id,
-  markCard,
-  cards,
-  setNextCardType,
-  nextCardType,
-}: CardProps) {
-  const x = useMotionValue(0);
-  const { hapticFeedback } = useTelegramSdk();
-
-  const scaleMotion = useTransform(x, [-150, 0, 150], [1.1, 1, 1.1]);
-  const rotateRaw = useTransform(x, [-150, 150], [-18, 18]);
-  const currentIndex = cards.findIndex((card) => card.id === id);
-  const isFront = currentIndex === cards.length - 1;
-
-  const rotate = useTransform(() => {
-    return rotateRaw.get();
-  });
-
-  const translateY = (cards.length - currentIndex - 1) * -12;
-  const scale = isFront
-    ? scaleMotion
-    : 1 - (cards.length - currentIndex - 1) * 0.016;
-
-  useMotionValueEvent(x, "change", (latest) => {
-    if (latest > 0 && nextCardType !== "right") {
-      setNextCardType("right");
-    } else if (latest < 0 && nextCardType !== "left") {
-      setNextCardType("left");
-    }
-  });
-
-  const handleDragEnd = () => {
-    const takeAfterDistance = 20;
-    const currentDragDistance = Math.abs(x.get());
-
-    if (currentDragDistance > takeAfterDistance) {
-      markCard(id, x.get() > 0 ? "like" : "dislike");
-      hapticFeedback();
-    }
-  };
-
-  return (
-    <motion.div
-      className="card-wrapper"
-      drag={isFront ? "x" : false}
-      dragConstraints={{ left: 0, right: 0 }}
-      style={{ x, scale, rotate, translateY }}
-      onDragEnd={handleDragEnd}
-    >
-      <div className={`card ${isFront ? "-front" : "-back"}`}>
-        <Image
-          className="card-image"
-          src={image}
-          alt={text}
-          width={312}
-          height={312}
-          priority={true}
-        />
-        <div className="card-text">{text}</div>
-      </div>
-    </motion.div>
-  );
-}
+export const CARDS_COUNT = 5;
 
 interface WishesTinderProps {
   nextCardType: "left" | "right" | null;
@@ -99,7 +22,15 @@ interface WishesTinderProps {
   setNextWish: Dispatch<SetStateAction<Wish | null>>;
 }
 
-const CARDS_COUNT = 5;
+function Wrapper({ children }: PropsWithChildren) {
+  return (
+    <div className="cards">
+      <div className="cards-container">
+        <div className="cards-stack">{children}</div>
+      </div>
+    </div>
+  );
+}
 
 export default function WishesTinder({
   nextCardType,
@@ -110,10 +41,13 @@ export default function WishesTinder({
   const {
     shuffledWishes: wishes,
     markedWishes,
+    unmarkedWishesCount,
+    likedWishesCount,
+
     setMarkedWishes,
     resetWishes,
-    unmarkedWishesCount,
   } = useWishes();
+
   const { hapticFeedback, popup } = useTelegramSdk();
 
   useEffect(() => {
@@ -166,49 +100,79 @@ export default function WishesTinder({
     }
   };
 
-  return (
-    <div className="cards">
-      <div className="cards-container">
-        <div className="cards-stack">
-          <AnimatePresence>
-            {cards.map((card) => (
-              <motion.div
-                className="card-stack-item"
-                key={card.id}
-                initial="hidden"
-                exit={
-                  nextCardType === "left"
-                    ? {
-                        translateX: "-100vw",
-                        scale: 0.9,
-                        opacity: 0,
-                        zIndex: 1,
-                      }
-                    : { translateX: "100vw", scale: 0.9, opacity: 0, zIndex: 1 }
-                }
-              >
-                <Card
-                  {...card}
-                  cards={cards}
-                  markCard={markCard}
-                  setNextCardType={setNextCardType}
-                  nextCardType={nextCardType}
-                />
-              </motion.div>
-            ))}
-            {unmarkedWishesCount === 0 && (
-              <div className="card-stack-item">
-                <div className="card-wrapper end">
-                  <p className="end-text">Всё, желания закончились :)</p>
-                  <p className="end-text">
-                    <span onClick={handleReset}>Начать заново?</span>
-                  </p>
-                </div>
-              </div>
-            )}
-          </AnimatePresence>
+  const handleRemoveLastLike = () => {
+    const lastMarkedWishId = Object.keys(markedWishes).pop();
+    if (lastMarkedWishId) {
+      setMarkedWishes((prev) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { [lastMarkedWishId]: _, ...rest } = prev;
+        return rest;
+      });
+    }
+  };
+
+  const noWishesLeft = unmarkedWishesCount === 0;
+  if (noWishesLeft) {
+    return (
+      <Wrapper>
+        <div className="card-stack-item">
+          <div className="card-wrapper end">
+            <p className="end-text">Всё, желания закончились :)</p>
+            <p className="end-text">
+              <span onClick={handleReset}>Начать заново?</span>
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
+      </Wrapper>
+    );
+  }
+
+  const noLikesLeft = likedWishesCount >= MAX_LIKES;
+  if (noLikesLeft) {
+    return (
+      <Wrapper>
+        <div className="card-stack-item">
+          <div className="card-wrapper end">
+            <p className="end-text">Нельзя выбрать больше :(</p>
+            <p className="end-text">
+              <span onClick={handleReset}>Сбросить</span> или{" "}
+              <span onClick={handleRemoveLastLike}>убрать последний лайк</span>
+            </p>
+          </div>
+        </div>
+      </Wrapper>
+    );
+  }
+
+  return (
+    <Wrapper>
+      <AnimatePresence>
+        {cards.map((card) => (
+          <motion.div
+            className="card-stack-item"
+            key={card.id}
+            initial="hidden"
+            exit={
+              nextCardType === "left"
+                ? {
+                    translateX: "-100vw",
+                    scale: 0.9,
+                    opacity: 0,
+                    zIndex: 1,
+                  }
+                : { translateX: "100vw", scale: 0.9, opacity: 0, zIndex: 1 }
+            }
+          >
+            <WishesTinderCard
+              {...card}
+              cards={cards}
+              markCard={markCard}
+              setNextCardType={setNextCardType}
+              nextCardType={nextCardType}
+            />
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    </Wrapper>
   );
 }

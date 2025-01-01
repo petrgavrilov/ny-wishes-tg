@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
 import { useWishes } from "@/providers/wishes";
+import { MAX_LIKES } from "@/data/wishes";
 
 function LikeButton({
   onClick,
@@ -86,14 +87,19 @@ export default function WishesActions({
   onLike,
   onDislike,
 }: WishesActionsProps) {
+  const noLikesLeft = likedWishesCount >= MAX_LIKES;
+
   return (
     <div className="actions">
       <DislikeButton
-        isDisabled={unmarkedWishesCount <= 0}
+        isDisabled={noLikesLeft || unmarkedWishesCount <= 0}
         onClick={onDislike}
       />
       <FinishButton isDisabled={likedWishesCount <= 0} />
-      <LikeButton isDisabled={unmarkedWishesCount <= 0} onClick={onLike} />
+      <LikeButton
+        isDisabled={noLikesLeft || unmarkedWishesCount <= 0}
+        onClick={onLike}
+      />
     </div>
   );
 }
