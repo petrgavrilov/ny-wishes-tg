@@ -26,10 +26,13 @@ export default function FinalHeader() {
           <p className="final-info-text">
             Собрал для тебя карточки с желаниями
           </p>
-          {sentToBot && (
+          {!sentToBot && (
             <p className="final-info-text">
-              Отправил список желаний и карточки в бот
+              Отправляю список и картинки в бот...
             </p>
+          )}
+          {sentToBot && (
+            <p className="final-info-text">Отправил список и картинки в бот</p>
           )}
         </>
       )}

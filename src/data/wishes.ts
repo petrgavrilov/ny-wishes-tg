@@ -279,7 +279,7 @@ export const wishes: Wish[] = [
   {
     id: "drink-2-liters-of-water-daily",
     description: "Drink 2 liters of water every day for 30 days",
-    descriptionRus: "Пить 2 литра воды каждый день в течение 30 дней",
+    descriptionRus: "Пить 2 литра воды каждый день в течение 30 дней",
     tags: ["health", "growth", "calm"],
     emoji: "💧",
     associations: [
@@ -627,7 +627,7 @@ export const wishes: Wish[] = [
   {
     id: "host-a-small-gathering-for-close-friends",
     description: "Host a small gathering for close friends",
-    descriptionRus: "Устроить небольшую встречу для близких друзей",
+    descriptionRus: "Устроить небольшую встречу для близких друзей",
     tags: ["fun", "relationships", "joy", "kindness"],
     emoji: "🍻",
     associations: [
@@ -641,7 +641,7 @@ export const wishes: Wish[] = [
   {
     id: "join-a-yoga-or-pilates-class",
     description: "Join a yoga or Pilates class",
-    descriptionRus: "Записаться на занятия йогой или пилатесом",
+    descriptionRus: "Записаться на занятия йогой или пилатесом",
     tags: ["health", "calm", "fitness", "growth"],
     emoji: "🧘",
     associations: [
@@ -818,7 +818,7 @@ export const wishes: Wish[] = [
   {
     id: "make-a-good-deed",
     description: "Make a good deed expecting nothing in return",
-    descriptionRus: "Совершить добрый поступок, не ожидая ничего взамен",
+    descriptionRus: "Совершить добрый поступок, не ожидая ничего взамен",
     tags: ["kindness", "growth", "relationships"],
     emoji: "🫶",
     associations: [
@@ -846,7 +846,7 @@ export const wishes: Wish[] = [
   {
     id: "overcome-biggest-fear",
     description: "Overcome your biggest fear",
-    descriptionRus: "Преодолеть свой самый большой страх",
+    descriptionRus: "Преодолеть свой самый большой страх",
     tags: ["growth", "achievement", "inspiration"],
     emoji: "🦁",
     associations: [
@@ -921,20 +921,20 @@ export const wishes: Wish[] = [
       "timer",
     ],
   },
-  {
-    id: "protect-dolphins-and-marine-life",
-    description: "Protect dolphins and marine life",
-    descriptionRus: "Защищать дельфинов и морскую жизнь",
-    tags: ["kindness", "growth", "experiments", "inspiration"],
-    emoji: "🐬",
-    associations: [
-      "marine life book",
-      "reusable bottles",
-      "ocean cleaning tools",
-      "donation certificate",
-      "volunteer badge",
-    ],
-  },
+  // {
+  //   id: "protect-dolphins-and-marine-life",
+  //   description: "Protect dolphins and marine life",
+  //   descriptionRus: "Защищать дельфинов и морскую жизнь",
+  //   tags: ["kindness", "growth", "experiments", "inspiration"],
+  //   emoji: "🐬",
+  //   associations: [
+  //     "marine life book",
+  //     "reusable bottles",
+  //     "ocean cleaning tools",
+  //     "donation certificate",
+  //     "volunteer badge",
+  //   ],
+  // },
   {
     id: "publish-a-book",
     description: "Publish a book",
@@ -1050,7 +1050,7 @@ export const wishes: Wish[] = [
   {
     id: "see-cherry-blossoms-in-japan",
     description: "See cherry blossoms in Japan",
-    descriptionRus: "Посмотреть на цветение сакуры в Японии",
+    descriptionRus: "Посмотреть на цветение сакуры в Японии",
     tags: ["travel", "inspiration", "calm", "joy"],
     emoji: "🌸",
     associations: [

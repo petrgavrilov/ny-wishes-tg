@@ -7,8 +7,10 @@ import { Wish } from "@/data/wishes";
 import { useState } from "react";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
 import { useWishes } from "@/providers/wishes";
+import WishesOnboarding from "./onboarding/WishesOnboarding";
 
 export default function Wishes() {
+  const [showOnboarding, setShowOnboarding] = useState(true);
   const [nextCardType, setNextCardType] = useState<"left" | "right" | null>(
     null
   );
@@ -34,21 +36,26 @@ export default function Wishes() {
   };
 
   return (
-    <Panel>
-      <div className="wishes-container">
-        <WishesTinder
-          nextCardType={nextCardType}
-          setNextCardType={setNextCardType}
-          setNextWish={setNextWish}
-        />
-        <WishesActions
-          likedWishesCount={likedWishesCount}
-          unmarkedWishesCount={unmarkedWishesCount}
-          onLike={onLike}
-          onDislike={onDislike}
-        />
-        <WishesCounter counter={unmarkedWishesCount} />
-      </div>
-    </Panel>
+    <>
+      <Panel>
+        <div className="wishes-container">
+          <WishesTinder
+            nextCardType={nextCardType}
+            setNextCardType={setNextCardType}
+            setNextWish={setNextWish}
+          />
+          <WishesActions
+            likedWishesCount={likedWishesCount}
+            unmarkedWishesCount={unmarkedWishesCount}
+            onLike={onLike}
+            onDislike={onDislike}
+          />
+          <WishesCounter counter={unmarkedWishesCount} />
+        </div>
+      </Panel>
+      {showOnboarding && (
+        <WishesOnboarding handleStart={() => setShowOnboarding(false)} />
+      )}
+    </>
   );
 }

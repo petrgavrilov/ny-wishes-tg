@@ -1,6 +1,8 @@
 .final-footer {
-  position: sticky;
-  bottom: 0px;
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  right: 0;
   z-index: 10;
 }
 

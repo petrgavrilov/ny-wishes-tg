@@ -5,6 +5,7 @@ import { Wish } from "@/data/wishes";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
 import { motion } from "motion/react";
 import { ShareIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 
 const debounce = (func, wait) => {
   let timeout;
@@ -39,6 +40,7 @@ export default function FinalCarousel({
         const slideWidth = carousel.offsetWidth;
         const currentIndex = Math.round(carousel.scrollLeft / slideWidth);
         setActiveIndex(currentIndex);
+        hapticFeedback();
       }
     }, 100);
 
@@ -122,10 +124,12 @@ export default function FinalCarousel({
           {likedWishes.map((wish) => {
             return (
               <div key={wish.id} className="slide">
-                <img
+                <Image
                   className="slide-image"
                   src={`/social-cards/${wish.id}.png`}
                   alt={wish.description}
+                  width={540}
+                  height={960}
                 />
               </div>
             );

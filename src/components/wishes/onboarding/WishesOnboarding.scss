@@ -1,0 +1,118 @@
+.onboarding-container {
+  z-index: 99;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 0;
+  width: 100%;
+  height: 85%;
+  min-height: 580px;
+  max-height: 640px;
+  border-radius: 48px 48px 0 0;
+  max-width: 480px;
+  background: linear-gradient(
+    180deg,
+    rgba(123, 194, 254, 0.4) 0%,
+    #7bc2fe 75%,
+    #7bc2fe 100%
+  );
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.onboarding-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  z-index: 3;
+  margin: 0 auto;
+  max-width: 300px;
+  width: 100%;
+  background-color: #fff;
+
+  padding: 17px;
+  border-radius: 64px;
+  height: 64px;
+
+  text-decoration: none;
+  text-align: center;
+
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 48px rgba(123, 194, 254, 0.48);
+}
+
+.onboarding-button-text {
+  color: #5b87ab;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+.onboarding-button-icon {
+  width: 24px;
+  height: 24px;
+  fill: #7bc2fe;
+  margin-left: 8px;
+}
+
+.onboarding-note {
+  margin: 0 auto 30px;
+  max-width: 210px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ffffff;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.onboarding-content {
+  padding: 52px 40px 72px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.onboarding-instructions {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instruction-pic-container {
+  margin: 0 0 8px;
+  height: 60px;
+}
+
+.instruction-pic {
+  display: block;
+}
+
+.instruction-title {
+  margin: 0 0 8px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.instruction-text {
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ffffff;
+  opacity: 0.8;
+}
