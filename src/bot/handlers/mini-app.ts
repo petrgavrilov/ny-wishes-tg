@@ -10,18 +10,20 @@ export async function promptMiniApp(_bot: Bot<MyContext>, ctx: MyContext) {
     return;
   }
 
-  // todo: send image
+  await ctx.replyWithPhoto(
+    `AgACAgIAAxkBAAICNGd03fViSl-zcMgzKs1Uppee4Aj-AAIv7DEbD3WhS1AiKv8qPwEXAQADAgADcwADNgQ`
+  );
 
   ctx.session.state = BotState.PromptMiniApp;
 
   await ctx.reply(
-    `Теперь открывай мини приложение чтобы выбрать себе прикольные желания на новый год 🎄`,
+    `Теперь открывай мини-приложение, чтобы выбрать прикольные желания на Новый год! 🎄`,
     {
       reply_markup: {
         inline_keyboard: [
           [
             {
-              text: "Открыть мини приложение",
+              text: "✨ Запустить подбор желаний",
               web_app: {
                 url: `${WEBAPP_URL}?chat_id=${ctx.chat?.id}`,
               },

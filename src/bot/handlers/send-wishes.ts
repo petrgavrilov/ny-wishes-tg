@@ -39,6 +39,31 @@ async function sendCards(chatId: string, wishesIds: string[]) {
   }
 
   await Promise.all(promises);
+
+  await bot.api.sendMessage(
+    chatId,
+    `Удачи в новом году, и пусть все твои желания исполнятся! 🎉✨`,
+    {
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: "✨ Повыбирать ещё желаний",
+              web_app: {
+                url: `${WEBAPP_URL}?chat_id=${chatId}`,
+              },
+            },
+          ],
+          [
+            {
+              text: "📲 Заходи в мой Telegram-канал",
+              url: "https://t.me/petya_projects",
+            },
+          ],
+        ],
+      },
+    }
+  );
 }
 
 export async function sendWishes(chatId: string, wishesIds: string[]) {

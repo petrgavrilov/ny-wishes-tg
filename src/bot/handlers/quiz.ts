@@ -15,7 +15,7 @@ export async function startQuiz(_bot: Bot<MyContext>, ctx: MyContext) {
   );
 
   await ctx.reply(
-    "Отлично! Теперь ответь пожалуйста на пару вопросов о своих планах на будущий год",
+    "Отлично! Давай узнаем, что тебе важно в следующем году. Ответь на пару вопросов, и я помогу подобрать желания",
     {
       reply_markup: inlineKeyboard,
     }
@@ -38,7 +38,7 @@ export function setupQuiz(bot: Bot<MyContext>) {
     ctx.session.state = BotState.QuizFinished;
 
     await ctx.reply(
-      "Спасибо за ответы! Теперь я знаю, что тебе важно в новом году"
+      "Спасибо за ответы! Теперь я точно знаю, что сделает твой Новый год особенным"
     );
 
     await promptMiniApp(bot, ctx);

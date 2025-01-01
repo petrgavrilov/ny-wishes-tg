@@ -23,6 +23,10 @@ export function setupQuizStage1(bot: Bot<MyContext>) {
 
     // todo: send image
 
+    await ctx.replyWithPhoto(
+      `AgACAgIAAxkBAAICK2d02DbDk80uGCoZ5-d0CFklJ5ecAAIg7DEbD3WhS4G7V9wbf5GWAQADAgADcwADNgQ`
+    );
+
     await ctx.reply(priorityQuestion, {
       reply_markup: createQuizKeyboard(
         priorityAnswers,

@@ -19,7 +19,9 @@ export function setupQuizStage3(bot: Bot<MyContext>) {
       return;
     }
 
-    // todo: send image
+    await ctx.replyWithPhoto(
+      `AgACAgIAAxkBAAICMWd03LsgyiSW5u16mMxcnBO2McFcAAIs7DEbD3WhS16Tq0T_gIFsAQADAgADcwADNgQ`
+    );
 
     ctx.session.state = BotState.QuizStage3;
 
