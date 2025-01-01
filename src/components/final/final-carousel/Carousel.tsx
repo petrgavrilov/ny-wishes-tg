@@ -24,7 +24,7 @@ export default function FinalCarousel({
   startId,
   setIsCarouselVisible,
 }: FinalCarouselProps) {
-  const carouselRef = useRef<HTMLElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const { hapticFeedback } = useTelegramSdk();
   const [currentWish, setCurrentWish] = useState<Wish | null>(null);
