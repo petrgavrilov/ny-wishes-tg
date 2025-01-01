@@ -1,14 +1,18 @@
 import { useWishes } from "@/providers/wishes";
 import "./Carousel.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/image";
-import "swiper/css";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { Wish } from "@/data/wishes";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
 import { motion } from "motion/react";
 import { ShareIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
+
+const debounce = (func, wait) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+};
 
 interface FinalCarouselProps {
   startId: string | undefined;
@@ -19,90 +23,91 @@ export default function FinalCarousel({
   startId,
   setIsCarouselVisible,
 }: FinalCarouselProps) {
-  const initRef = useRef(false);
-  const swiperRef = useRef<any>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const { hapticFeedback } = useTelegramSdk();
   const [currentWish, setCurrentWish] = useState<Wish | null>(null);
   const { likedWishes } = useWishes();
-
-  const updateCurrentWish = () => {
-    if (!swiperRef.current) {
-      return;
-    }
-
-    const activeIndex: number = (swiperRef.current as any).realIndex;
-    const currentWish = likedWishes[activeIndex];
-    setCurrentWish(currentWish || null);
-  };
-
-  const handleSlideChange = () => {
-    updateCurrentWish();
-    hapticFeedback();
-  };
-
-  const setStartSlide = (startId?: string) => {
-    if (!startId || !swiperRef.current) {
-      return;
-    }
-
-    const startIndex = likedWishes.findIndex((wish) => wish.id === startId);
-
-    if (startIndex < 0) {
-      return;
-    }
-
-    swiperRef.current.slideTo(startIndex);
-  };
-
-  const handleSwiperInit = (swiper: any) => {
-    swiperRef.current = swiper;
-    updateCurrentWish();
-  };
+  const [isSharingEnabled, setIsSharingEnabled] = useState(false);
+  const [shareData, setShareData] = useState<ShareData | null>(null);
 
   useEffect(() => {
-    if (!initRef.current) {
-      setStartSlide(startId);
-      initRef.current = true;
-    }
-  }, [startId, setStartSlide]);
+    const carousel = carouselRef.current;
 
-  const handleShare = async () => {
-    if (currentWish === null) {
-      return;
+    const handleScroll = debounce(() => {
+      if (carousel) {
+        const slideWidth = carousel.offsetWidth;
+        const currentIndex = Math.round(carousel.scrollLeft / slideWidth);
+        setActiveIndex(currentIndex);
+      }
+    }, 100);
+
+    if (carousel) {
+      carousel.addEventListener("scroll", handleScroll);
     }
 
-    const imageName = `${currentWish.id}.png`;
-    const cardUrl = `/social-cards/${imageName}`;
-    const response = await fetch(cardUrl);
-    const blob = await response.blob();
-    const filesArray = [
-      new File([blob], `imageName`, {
-        type: "image/png",
-        lastModified: new Date().getTime(),
-      }),
-    ];
-    const shareData: ShareData = {
-      files: filesArray,
+    return () => {
+      if (carousel) {
+        carousel.removeEventListener("scroll", handleScroll);
+      }
     };
+  }, []);
 
-    hapticFeedback();
-    await navigator.share(shareData);
-  };
+  useEffect(() => {
+    const wish = likedWishes[activeIndex] || null;
+    setCurrentWish(wish);
+  }, [activeIndex, likedWishes]);
 
-  const handleDownload = () => {
-    if (currentWish === null) {
-      return;
+  useEffect(() => {
+    (async (currentWish: Wish | null) => {
+      if (currentWish === null) {
+        setShareData(null);
+        setIsSharingEnabled(false);
+        return;
+      }
+
+      try {
+        const imageName = `${currentWish.id}.png`;
+        const cardUrl = `/social-cards/${imageName}`;
+        const response = await fetch(cardUrl);
+        const blob = await response.blob();
+        const filesArray = [
+          new File([blob], imageName, {
+            type: "image/png",
+            lastModified: new Date().getTime(),
+          }),
+        ];
+        const shareData: ShareData = {
+          files: filesArray,
+        };
+        setShareData(shareData);
+        setIsSharingEnabled(navigator.canShare(shareData));
+      } catch {
+        setShareData(null);
+        setIsSharingEnabled(false);
+      }
+    })(currentWish).then();
+  }, [currentWish]);
+
+  useEffect(() => {
+    if (startId) {
+      const startIndex = likedWishes.findIndex((wish) => wish.id === startId);
+      if (startIndex > -1 && carouselRef.current) {
+        const carouselEl = carouselRef.current;
+        const width = carouselEl.clientWidth;
+        carouselEl.scroll({
+          left: startIndex * width,
+          behavior: "instant",
+        });
+      }
     }
+  }, []);
 
-    const imageName = `${currentWish.id}.png`;
-    const cardUrl = `/social-cards/${imageName}`;
-
-    const link = document.createElement("a");
-    link.href = cardUrl;
-    link.download = imageName;
-
-    hapticFeedback();
-    link.click();
+  const handleShare = async (shareData: ShareData) => {
+    try {
+      await navigator.share(shareData);
+      hapticFeedback();
+    } catch {}
   };
 
   const handleClose = () => {
@@ -112,52 +117,31 @@ export default function FinalCarousel({
 
   return (
     <>
-      {" "}
       <div className="carousel-container">
-        <Swiper
-          spaceBetween={0}
-          slidesPerView={1}
-          onSlideChange={handleSlideChange}
-          onSwiper={handleSwiperInit}
-          loop={true}
-          style={{
-            height: "100%",
-            width: "100%",
-          }}
-        >
+        <div className="carousel" ref={carouselRef}>
           {likedWishes.map((wish) => {
             return (
-              <SwiperSlide key={wish.id}>
-                <div className="slide">
-                  <Image
-                    className="slide-image"
-                    src={`/social-cards/${wish.id}.png`}
-                    alt={wish.description}
-                    width={540}
-                    height={960}
-                    priority={true}
-                  />
-                </div>
-              </SwiperSlide>
+              <div key={wish.id} className="slide">
+                <img
+                  className="slide-image"
+                  src={`/social-cards/${wish.id}.png`}
+                  alt={wish.description}
+                />
+              </div>
             );
           })}
-        </Swiper>
+        </div>
 
         <div className="slide-actions">
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={handleShare}
-            className="slide-action-button -share"
-          >
-            <ShareIcon className="slide-action-button-icon" />
-          </motion.button>
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={handleDownload}
-            className="slide-action-button -download"
-          >
-            <ArrowDownTrayIcon className="slide-action-button-icon" />
-          </motion.button>
+          {isSharingEnabled && shareData && (
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => handleShare(shareData)}
+              className="slide-action-button -share"
+            >
+              <ShareIcon className="slide-action-button-icon" />
+            </motion.button>
+          )}
         </div>
       </div>
       <div className="close-panel">

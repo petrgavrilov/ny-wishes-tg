@@ -3,7 +3,7 @@ import Panel from "../panel/Panel";
 import FinalFooter from "./footer/FinalFooter";
 import FinalHeader from "./header/FinalHeader";
 import FinalList from "./list/List";
-import FinalCarousel from "./final-carousel/Carousel";
+import FinalCarousel from "./carousel/Carousel";
 import { useState } from "react";
 import { useTelegramSdk } from "@/providers/telegram-sdk";
 
